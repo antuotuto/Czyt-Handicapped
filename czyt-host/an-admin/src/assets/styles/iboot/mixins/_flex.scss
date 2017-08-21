@@ -1,0 +1,16 @@
+@mixin flex() {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start; //flex-start | flex-end | center | space-between | space-around;
+  align-items: flex-start; //flex-start | flex-end | center | baseline | stretch;
+  align-content: flex-start; //flex-start | flex-end | center | space-between | space-around | stretch;
+  //
+  text-align: center;
+}
+
+@mixin flex-item() {
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+}

@@ -1,0 +1,47 @@
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .5);
+
+  &.active {
+    display: block;
+  }
+}
+
+.modal-content {
+  position: fixed;
+  width: 100%;
+  padding: 0 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%,0);
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.modal-header {
+  position: relative;
+  @include clearfix();
+}
+
+.modal-body {
+  position: relative;
+  @include clearfix();
+  padding: 15px;
+  background-color: white;
+}
+
+.modal-footer {}
+
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+}

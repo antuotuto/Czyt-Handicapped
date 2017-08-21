@@ -1,0 +1,103 @@
+.el-menu {
+  background-color: white;
+}
+
+.el-menu--horizontal .el-menu-item {
+  font-weight: bold;
+  color: #b5b5b5;
+}
+
+.el-menu--horizontal.el-menu--dark .el-submenu .el-menu-item.is-active,
+.el-menu-item.is-active {
+  color: #21a2f2;
+  border-bottom-color: #21a2f2;
+}
+
+.el-menu--dark .el-menu-item,
+.el-menu--dark .el-submenu__title {
+  background-color: #2a2a36;
+}
+// input
+
+.el-input__inner {
+  border-radius: 0;
+  border-color: transparent;
+}
+// checkbox
+
+.el-checkbox__label {
+  font-weight: bold;
+}
+// select
+
+.el-select {
+  width: 100px;
+}
+
+.el-select .el-input__inner {
+  &::placeholder {
+    color: #8e9eb3;
+  }
+}
+
+.el-select .el-input .el-input__icon {
+  color: #21a2f2;
+}
+// btn
+
+.el-button {
+  border: 0;
+  border-radius: 0;
+}
+
+.el-input-group__append,
+.el-input-group__prepend {
+  border: 0;
+  color: white;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.el-input-group__append button.el-button,
+.el-input-group__append div.el-select .el-input__inner,
+.el-input-group__append div.el-select:hover .el-input__inner,
+.el-input-group__prepend button.el-button,
+.el-input-group__prepend div.el-select .el-input__inner,
+.el-input-group__prepend div.el-select:hover .el-input__inner {
+  background-color: $brand-primary;
+}
+// table
+
+.el-table {
+  border: 0;
+}
+
+.el-table::after,
+.el-table::before {
+  display: none;
+}
+
+.el-table th {
+  background-color: #8e9eb3;
+}
+
+.el-table td,
+.el-table th.is-leaf {
+  border-bottom: 0;
+}
+
+.el-table__footer-wrapper thead div,
+.el-table__header-wrapper thead div {
+  background-color: transparent;
+  color: white;
+}
+
+.el-table--enable-row-transition .el-table__body td {
+  font-size: 12px;
+}
+
+.el-table .cell,
+.el-table th > div {
+  padding-left: 15px;
+  padding-right: 15px;
+}

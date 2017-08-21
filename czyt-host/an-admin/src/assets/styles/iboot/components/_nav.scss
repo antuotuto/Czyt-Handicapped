@@ -1,0 +1,42 @@
+//
+.navbar{
+}
+
+//
+.nav {
+    @include clearfix();
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.nav-item {
+    &:hover {}
+
+    &.active {}
+}
+
+.nav-link {
+    display: inline-block;
+    @include hover-focus {
+        text-decoration: none;
+    }
+
+    &.disabled {
+        color: $gray-light;
+        @include plain-hover-focus {
+            color: $gray-light;
+            cursor: not-allowed;
+            background-color: transparent;
+        }
+    }
+}
+
+.nav-item + .nav-item,
+.nav-link + .nav-link {}
+
+.nav-icon {}
+
+.nav-text {}
+
+.dropdown-menu {}

@@ -1,0 +1,9 @@
+// Text truncate
+// Requires inline-block or block for proper styling
+
+@mixin text-line($number) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $number;
+  overflow: hidden;
+}

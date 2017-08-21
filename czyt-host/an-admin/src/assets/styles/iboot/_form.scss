@@ -1,0 +1,138 @@
+.form-control {
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 5px;
+  color: black;
+  background-color: white;
+  background-image: none;
+  background-clip: padding-box;
+  border: 1px solid black;
+  border-radius: 0;
+
+  &::placeholder {
+    color: rgba(0,0,0,.3);
+    opacity: 1;
+  }
+  // Unstyle the caret on `<select>`s in IE10+.
+  &::-ms-expand {
+    background-color: transparent;
+    border: 0;
+  }
+
+  &:disabled,
+  &[readonly] {
+    background-color: gray;
+    opacity: 1;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+  /*hover*/
+  &:hover {
+    color: inherit;
+    background-color: inherit;
+    border-color: $brand-primary;
+    outline: none;
+    box-shadow: none;
+  }
+  /*focus*/
+  &:focus {
+    color: inherit;
+    background-color: inherit;
+    border-color: $brand-primary;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+select.form-control {
+  &:not([size]):not([multiple]) {
+    height: calc(5-1);
+  }
+
+  &:focus::-ms-value {
+    color: gray;
+    background-color: black;
+  }
+}
+////////////////////////////////////////////////////////////////////////////
+/*custom-control*/
+// checkbox radio
+
+.custom-control {
+  position: relative;
+  line-height: inherit;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.custom-control-input {
+  position: absolute;
+  opacity: 0;
+
+  &:checked ~ .custom-control-indicator {
+    background-clip: content-box;
+    background-color: $brand-primary;
+  }
+
+  &:checked ~ .custom-control-text {}
+}
+
+.custom-control-indicator {
+  line-height: inherit;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid $brand-primary;
+  width: 1rem;
+  height: 1rem;
+  padding: 1px;
+  //
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  //
+  background-color: transparent;
+}
+
+.custom-control-text {
+  line-height: inherit;
+  vertical-align: middle;
+}
+// select
+
+.custom-select {
+  display: inline-block;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  color: inherit;
+  vertical-align: middle;
+  background-image: none \9;
+  background-size: 100%;
+  border: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  &:focus {
+    outline: none;
+
+    &::-ms-value {
+      color: $brand-primary;
+      background-color: black;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: gray;
+    background-color: black;
+  }
+  // Hides the default caret in IE11
+  &::-ms-expand {
+    opacity: 0;
+  }
+}

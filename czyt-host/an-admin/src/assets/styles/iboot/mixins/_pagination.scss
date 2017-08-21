@@ -1,0 +1,22 @@
+// Pagination
+
+.page-link {
+  padding: 15px;
+  font-size: 14px;
+}
+
+.page-item {
+  &:first-child {
+    .page-link {
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
+    }
+  }
+
+  &:last-child {
+    .page-link {
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+  }
+}

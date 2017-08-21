@@ -1,0 +1,28 @@
+// chrome
+
+::-webkit-scrollbar {
+    width: 4px;
+    background: rgba(0,0,0,.08);
+}
+
+::-webkit-scrollbar-button {
+    // background:red;
+}
+
+::-webkit-scrollbar-track {
+    // width: 6px;
+    // background:red;
+}
+
+::-webkit-scrollbar-track-piece {
+    // background: rgba($brand-primary,.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: $brand-primary;
+    border-radius: 100px;
+}
+
+::-webkit-scrollbar-corner {}
+
+::-webkit-resizer {}
