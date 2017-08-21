@@ -1,7 +1,7 @@
 <template>
 <!--  -->
 <div class="dateBox">
-
+<!-- 日期框 -->
   <el-date-picker
     v-model="value2"
     align="right"
@@ -9,7 +9,7 @@
     placeholder="选择日期"
     :picker-options="pickerOptions1">
   </el-date-picker>
-
+<!--  -->
 </div>
 <!--  -->
 </template>

@@ -2,9 +2,19 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import App from '~/App.vue'
-import Home from '~/components/home.vue'
-import Admin from '~/components/admin.vue'
 import NotFoundComponent from '~/pages/404.vue'
+
+const Home = (resolve) => {
+  import ('~/components/home.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const Admin = (resolve) => {
+  import ('~/components/admin.vue').then((module) => {
+    resolve(module)
+  })
+}
 
 Vue.use(Router)
 
