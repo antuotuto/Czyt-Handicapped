@@ -1,12 +1,9 @@
 <template>
 <div id="app">
-  <div class="loading" id="loading">
-    <div class="dont-wor">
-      <p>财资易通正在加载 <i class="el-icon-loading"></i></p>
-    </div>
-  </div>
   <header  :class="[this.logo ? true : 'active', '']" >
-    <p  :class="[this.logo ? true : 'active', '']" >海南残联管理系统</p>
+    <router-link to="/home">
+      <p  :class="[this.logo ? true : 'active', '']" >海南残联管理系统</p>
+    </router-link>
     <button type="button" name="button" @click="menuOn"  :class="[this.logo ? true : 'active', '']" >
       <i class="" :class="{'el-icon-menu':currentView == 'view-main','el-icon-close':currentView != 'view-main'}"></i>
     </button>
@@ -19,6 +16,9 @@
         <el-menu-item index="5" :route="{path:'/excl1'}">基础平台系统</el-menu-item>
       </el-menu>
     </el-col>
+    <ul class="admin-right">
+      <li>王安安</li><li><i class="el-icon-share"></i></li>
+    </ul>
   </header>
   <main>
     <router-view></router-view>
@@ -78,6 +78,19 @@ header {
     z-index: 1000;
     background: #fff;
     transition: 0.5s;
+    .admin-right{
+      position: absolute;
+      right:0;
+      top:0;
+      li{
+        height:60px;
+        line-height: 60px;
+        list-style: none;
+        display: inline-block;
+        padding: 0 25px;
+        background: #E5E9F2;
+      }
+    }
     &.active{
       padding-left: 120px;
     }
@@ -148,40 +161,4 @@ main {
     background: #a4a4a4;
     border-radius: 0;
 }
-
-
-.loading {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 100000;
-  background: #1D8CE0;
-  text-align: center;
-  line-height: 200px;
-  font-weight: bold;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dont-wor p {
-  font-size: 15px;
-  height: 65px;
-  line-height: 65px;
-  width: 200px;
-  border-radius: 4px;
-  background: #fff;
-  box-shadow: 0 5px 10px rgba(27, 55, 75, 0.08);
-  text-align: center;
-  font-weight: bold;
-  color: #777;
-}
-
-.hidden {
-  display: none;
-}
-
-
-
 </style>

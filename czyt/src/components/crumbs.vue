@@ -29,8 +29,5 @@ export default {
     background: #fff;
     margin-bottom: 10px;
   }
-
-
-
-
+  
 </style>

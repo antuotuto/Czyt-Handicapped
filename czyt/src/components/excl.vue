@@ -23,9 +23,6 @@
     </el-table-column>
     <el-table-column width="" label="年龄" prop="city" align="center">
     </el-table-column>
-    <el-table-column width="" label="距离" prop="" align="center">
-      <template scope="scope">{{ scope.row.date }}</template>
-    </el-table-column>
     <el-table-column width="" label="喜欢" prop="" align="center">
       <template scope="scope">{{ scope.row.status }}</template>
     </el-table-column>
@@ -47,26 +44,26 @@
 </template>
 
 <script>
-import {
-  table
-} from '~/data';
 
 export default {
   components: {},
   data() {
     return {
-      tableData: table,
+      tableData: this.data,
     }
   },
   methods: {
-
     handleEdit(index, row) {
       console.log(index, row);
+      this.$emit('select', index)
     },
     handleDelete(index, row) {
       console.log(index, row);
     }
-  }
+  },
+  props: ["data"],
+  created() {
+  },
 }
 </script>
 

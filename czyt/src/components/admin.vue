@@ -6,9 +6,6 @@
   <!--  -->
   <!-- 业务 -->
   <div class="content-business">
-    <!-- <div class="content-header">
-      残疾人信息
-    </div> -->
     <!-- 表格 -->
     <el-tabs v-model="activeName" @tab-click="handleClick">
       <el-tab-pane name="first">
@@ -34,7 +31,7 @@
           </el-row>
           <!--  -->
           <!-- 表格 -->
-          <excl></excl>
+          <excl :data="table" @select="selectSinger"></excl>
           <!--  -->
           <!-- 分页 -->
           <paging></paging>
@@ -77,12 +74,42 @@
         <!--  -->
       </el-tab-pane>
     </el-tabs>
+<!-- 编辑 -->
+    <div class="edit" :class="[this.edit ? true : 'active', '']">
+      <el-row :gutter="20">
+        <el-col :span="13" :offset="1">
+          <div class="grid-content bg-purple">
+            <el-form :label-position="labelPosition" label-width="100px" :model="formLabelAlign" ref="numberValidateForm">
+              <el-form-item label="名称 :">
+                <el-input v-model="formLabelAlign.name"></el-input>
+              </el-form-item>
+              <el-form-item label="活动区域 :">
+                <el-input v-model="formLabelAlign.region"></el-input>
+              </el-form-item>
+              <el-form-item label="活动形式 :">
+                <el-input v-model="formLabelAlign.type"></el-input>
+              </el-form-item>
+              <el-form-item label="活动地点 :">
+                <el-input v-model="formLabelAlign.type"></el-input>
+              </el-form-item>
+              <el-form-item>
+                <el-button type="primary" @click="submitForm('numberValidateForm')">提交</el-button>
+                <el-button @click="resetForm('numberValidateForm')">重置</el-button>
+              </el-form-item>
+              </el-form-item>
+            </el-form>
+          </div>
+        </el-col>
+        <el-col :span="10">
+          <div class="grid-content bg-purple"></div>
+        </el-col>
+      </el-row>
+    </div>
+<!--  -->
+
+
   </div>
   <!--  -->
-
-
-
-
 </div>
 <!--  -->
 </template>
@@ -93,7 +120,9 @@ import crumbs from '~/components/crumbs.vue'
 import paging from '~/components/paging.vue'
 import selectComponents from '~/components/selectComponents.vue'
 import dateBox from '~/components/dateBox.vue'
-
+import {
+  table
+} from '~/data';
 
 export default {
   components: {
@@ -112,7 +141,9 @@ export default {
         type: ''
       },
       activeName: 'first',
-      input: ''
+      input: '',
+      table,
+      edit:true
     }
   },
   watch: {},
@@ -127,6 +158,9 @@ export default {
         }
       });
     },
+    selectSinger(table) {
+      console.log(index);
+    },
     resetForm(formName) {
       this.$refs[formName].resetFields();
     },
@@ -140,7 +174,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .admin {
   padding-right: 15px;
   overflow-y: scroll;
@@ -170,7 +204,11 @@ export default {
   padding: 0 300px !important;
 }
 
-
+.edit{
+  &.active{
+    display: none;
+  }
+}
 
 
 
