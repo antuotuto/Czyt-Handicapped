@@ -6,6 +6,9 @@ import App from './App.vue'
 // 默认css样式
 import './assets/css/delay.css'
 
+// 自定义样式
+import './assets/css/iboot.css'
+
 // import './assets/styles/main/main.scss'
 
 // 路由

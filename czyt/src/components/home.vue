@@ -3,9 +3,10 @@
   <div class="home-left">
     <leftMenu></leftMenu>
   </div>
-
   <div class="home-right">
-    <router-view></router-view>
+    <div class="right-content">
+      <router-view></router-view>
+    </div>
   </div>
 </div>
 </template>
@@ -14,7 +15,6 @@
 import leftMenu from '~/components/leftMenu.vue'
 
 export default {
-  name: 'home',
   data() {
     return {
 
@@ -46,6 +46,11 @@ export default {
     height: 100%;
     padding: 15px 0 15px 15px;
     box-sizing: border-box;
+    .right-content{
+      overflow-y: scroll;
+      padding-right: 15px;
+      height:100%;
+    }
 }
 
 ::-webkit-scrollbar-track-piece {

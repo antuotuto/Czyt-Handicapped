@@ -40,9 +40,9 @@ export default {
     background: #324157;
 }
 .home-right {
-    overflow: hidden;
+    overflow-y: scroll;
     height: 100%;
-    padding: 15px 0 15px 15px;
+    padding: 15px;
     box-sizing: border-box;
 }
 

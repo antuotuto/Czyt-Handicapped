@@ -1,0 +1,27 @@
+.crumbs{
+  padding: 15px;
+  background: #fff;
+  margin-bottom: 15px;
+}
+
+.content-tree{
+  margin-bottom: 15px;
+}
+
+.el-tree{
+  border: 0;
+}
+
+.content-search{
+  background: #fff;
+  padding: 15px;
+  border-top: 3px solid #20A0FF;
+}
+
+.content-top{
+  margin-top: 15px;
+}
+
+.content-paging {
+  text-align: right;
+}
