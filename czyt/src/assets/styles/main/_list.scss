@@ -1,0 +1,166 @@
+//
+
+.list-resume {
+    border-top: 3px solid #8e9eb3;
+}
+
+.item-resume {
+    position: relative;
+
+    .item-content {
+        transition: all 0.4s;
+    }
+
+    &:hover {
+        .item-content {
+            background-color: transparent;
+        }
+    }
+
+    &.deleted {}
+}
+
+.item-content-resume {
+    position: relative;
+    background-color: white;
+    padding: 10px 15px 10px 0;
+    border-bottom: 1px dashed #eaeaea;
+
+    .item-checkbox {
+        float: left;
+        display: block;
+        padding: 40px 20px 20px;
+
+        .el-checkbox__label {
+            display: none;
+        }
+    }
+
+    .avatar {
+        float: left;
+        display: block;
+        width: 96px;
+        height: 96px;
+        //
+        background: url('../../avatar.jpg') center center no-repeat;
+        background-size: cover;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    h1 {
+        padding-right: 15px;
+        overflow: hidden;
+        padding-top: 5px;
+        padding-bottom: 10px;
+        font-size: 14px;
+        text-align: left;
+        color: #21a2f2;
+        font-weight: bold;
+    }
+    // // badge
+    // .el-badge__content.is-fixed {
+    //     top: 4px;
+    // }
+    //
+    .el-badge__content.is-fixed.is-dot {
+        right: 0;
+    }
+
+    p {
+        color: #8e9eb3;
+        line-height: 2;
+
+        strong {
+            padding: 0 10px;
+
+            &:first-child {
+                padding-left: 0;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+
+            &.span {
+                font-weight: normal;
+            }
+        }
+    }
+
+    .info {
+        position: relative;
+        overflow: hidden;
+        padding-left: 10px;
+    }
+
+    .is-ok {
+        font-weight: bold;
+        color: #8e9eb3;
+        line-height: 2;
+
+        a {
+            color: inherit;
+        }
+
+        > li {
+            &::before {
+                display: inline-block;
+                content: '';
+                width: 10px;
+                height: 10px;
+                margin-right: 10px;
+                border-radius: 100%;
+                background-color: #e8ecf0;
+            }
+
+            &.active {
+                color: #fe7328;
+
+                &::before {
+                    background-color: #fe7328;
+                }
+            }
+
+            &.disabled {
+                color: #e8ecf0;
+                cursor: not-allowed;
+
+                a {
+                    cursor: not-allowed;
+                    pointer-events: none;
+                }
+
+                &::before {
+                    background-color: #e8ecf0;
+                }
+            }
+        }
+    }
+
+    .info-header {
+        margin-bottom: 5px;
+        border-bottom: 1px solid #e8ecf0;
+    }
+
+    .time {
+        color: #bbc5d1;
+        margin-right: 15px;
+    }
+
+    .action-get {
+        color: #21a2f2;
+
+        i {
+            margin-right: 6px;
+        }
+    }
+
+    .info-body {
+        position: relative;
+    }
+}

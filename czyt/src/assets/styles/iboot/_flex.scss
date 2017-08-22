@@ -1,0 +1,7 @@
+.flex {
+  @include flex();
+
+  > .flex-item {
+    @include flex-item();
+  }
+}

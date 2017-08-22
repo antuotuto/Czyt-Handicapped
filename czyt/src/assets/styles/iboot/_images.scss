@@ -1,0 +1,20 @@
+.img-fluid {
+    @include img-fluid;
+}
+
+.img-thumbnail {}
+
+.figure {
+    // Ensures the caption's text aligns with the image.
+    display: inline-block;
+}
+
+.figure-img {
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.figure-caption {
+    font-size: 1rem;
+    color: gray;
+}

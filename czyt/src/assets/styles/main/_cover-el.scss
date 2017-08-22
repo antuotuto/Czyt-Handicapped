@@ -1,0 +1,292 @@
+// menu
+
+.el-menu {
+    background-color: white;
+}
+
+.el-menu--horizontal .el-menu-item {
+    font-weight: bold;
+    color: #b5b5b5;
+}
+
+.el-menu--horizontal.el-menu--dark .el-submenu .el-menu-item.is-active,
+.el-menu-item.is-active {
+    color: #21a2f2;
+    border-bottom-color: #21a2f2;
+}
+
+.el-menu--dark .el-menu-item,
+.el-menu--dark .el-submenu__title {
+    background-color: #2a2a36;
+}
+// input
+
+.el-input__inner {
+    border-radius: 0;
+    border-color: transparent;
+    height: 30px;
+}
+// checkbox
+
+.el-checkbox__inner {
+    border-radius: 0;
+}
+
+.el-checkbox__label {
+    font-weight: bold;
+}
+// select
+
+.el-select {
+    width: 100px;
+}
+
+.el-select .el-input__inner {
+    &::placeholder {
+        color: #8e9eb3;
+    }
+}
+
+.el-select .el-input .el-input__icon {
+    color: #21a2f2;
+    transform: translateY(-50%);
+
+    &.el-icon-caret-top:before {
+        content: "\E604";
+    }
+}
+
+.el-select-dropdown__wrap {
+    max-height: 300px;
+}
+// date
+
+.el-date-editor.el-input {
+    width: 130px;
+    font-size: 13px;
+}
+
+.el-icon-date:before {
+    content: "\E604";
+    color: #21a2f2;
+}
+// btn
+
+.el-button {
+    border: 0;
+    border-radius: 0;
+}
+
+.el-input-group__append,
+.el-input-group__prepend {
+    border: 0;
+    color: white;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.el-button,
+.el-textarea__inner {
+    font-size: 13px;
+}
+
+.el-input-group__append button.el-button,
+.el-input-group__append div.el-select .el-input__inner,
+.el-input-group__append div.el-select:hover .el-input__inner,
+.el-input-group__prepend button.el-button,
+.el-input-group__prepend div.el-select .el-input__inner,
+.el-input-group__prepend div.el-select:hover .el-input__inner {
+    background-color: $brand-primary;
+}
+// table
+
+.el-table {
+    border: 0;
+}
+
+.el-table::after,
+.el-table::before {
+    display: none;
+}
+
+.el-table th {
+    background-color: #8e9eb3;
+}
+
+.el-table td,
+.el-table th.is-leaf {
+    border-bottom: 0;
+}
+
+.el-table__footer-wrapper thead div,
+.el-table__header-wrapper thead div {
+    background-color: transparent;
+    color: white;
+}
+
+.el-table--enable-row-transition .el-table__body td {
+    font-size: 12px;
+}
+
+.el-table .cell,
+.el-table th > div {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+// dropdown-city
+
+.dropdown-city {
+    max-width: 420px;
+
+    .el-select-group {
+        @include clearfix();
+    }
+
+    .el-select-dropdown__item {
+        float: left;
+        padding: 10px;
+    }
+}
+//dropdown-position
+
+.el-dropdown-menu__item--divided {
+    border-color: #e2e7eb;
+
+    &:before {
+        height: 0;
+    }
+}
+//
+
+.checkbox-group-position {
+    max-height: 300px;
+    overflow: auto;
+    padding-bottom: 33px;
+}
+
+.dropdown-job {
+    .el-dropdown-menu {
+        padding: 0;
+        margin: 4px 0 0;
+        top: auto;
+        left: auto;
+
+        .el-checkbox {
+            color: #8b9db1;
+            width: 100%;
+        }
+
+        .el-checkbox__inner {
+            border-radius: 0;
+        }
+    }
+
+    .dropdown-footer {
+        @include clearfix();
+        margin: 0;
+        padding: 0;
+        background-color: #eef2f5;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        z-index: 10;
+
+        .el-dropdown-menu__item {
+            float: left;
+            padding: 0;
+            width: 50%;
+        }
+
+        button {
+            margin: 0;
+            border: 0;
+            width: 100%;
+            background-color: transparent;
+
+            &:hover {
+                color: white;
+                background-color: $brand-primary;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &:first-child {
+                border-right: 1px solid #e2e7eb;
+            }
+
+            &:last-child {
+                border-left: 1px solid #f2f7fa;
+            }
+        }
+    }
+}
+//
+
+.btn-select {
+    color: #8e9eb3;
+    line-height: 30px;
+    padding: 0 15px;
+
+    i {
+        font-size: 12px;
+        color: $brand-primary;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+// dialog
+
+.dialogResume {
+    top: 5% !important;
+    margin: 0;
+    width: 100% !important;
+    max-width: 750px;
+    height: 90%;
+    max-height: 800px;
+    overflow: hidden;
+
+    .el-dialog__body {
+        height: 90%;
+        max-height: 90%;
+        overflow: hidden;
+    }
+}
+// el-select
+
+.jobkey {
+    background-color: #e4e8f1 !important;
+}
+
+.msgbox-markMatch {
+    .el-message-box__btns {
+        display: none;
+    }
+
+    .msgbox-header {
+        text-align: center;
+        color: rgb(72, 87, 106);
+        vertical-align: middle;
+
+        span {
+            position: relative;
+            top: -8px;
+            left: 5px;
+            font-size: 16px;
+        }
+
+        .el-icon-circle-check {
+            font-size: 36px;
+            color: $brand-success;
+        }
+    }
+
+    .msgbox-body {
+        padding-top: 15px;
+        text-align: center;
+        line-height: 24px;
+    }
+}

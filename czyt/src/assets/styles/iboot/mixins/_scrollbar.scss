@@ -1,0 +1,17 @@
+@mixin scrollbar($width:2px) {
+    ::-webkit-scrollbar {
+        width: $width;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: $brand-primary;
+    }
+
+    ::-webkit-scrollbar-thumb:window-inactive {
+        background: $brand-primary;
+    }
+}

@@ -1,0 +1,36 @@
+@import "variables";
+@import "mixins";
+@import "normalize";
+@import "reboot";
+@import "flex";
+@import "form";
+@import "button";
+@import "table";
+@import "iconimg";
+@import "components";
+@import "utilities";
+/*base*/
+body,
+html {
+    height: 100% !important;
+}
+
+body {
+    background-color: #eef2f5;
+}
+
+.page {
+    position: relative;
+    min-height: 100%;
+    margin: 0 auto;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    max-width: 1080px;
+    @include clearfix();
+}

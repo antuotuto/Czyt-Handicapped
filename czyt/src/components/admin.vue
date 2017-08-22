@@ -2,7 +2,7 @@
 <!--  -->
 <div class="admin">
   <!-- 面包屑 -->
-  <crumbs></crumbs>
+  <crumbs :crumbs="crumbs"></crumbs>
   <!--  -->
   <!-- 业务 -->
   <div class="content-business">
@@ -143,7 +143,8 @@ export default {
       activeName: 'first',
       input: '',
       table,
-      edit:true
+      crumbs:["首页","个性化服务系统","残疾人基础信息","个性化录入","/home"],
+      edit:false
     }
   },
   watch: {},

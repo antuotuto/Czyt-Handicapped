@@ -9,8 +9,8 @@
     </button>
     <el-col class="navbar" >
       <el-menu theme="light" default-active="1" mode="horizontal" :router="true">
-        <el-menu-item index="1" :route="{path:'/home'}">个性化服务系统</el-menu-item>
-        <el-menu-item index="2" :route="{path:'/excl'}">基金会系统</el-menu-item>
+        <el-menu-item index="1" :route="{path:'/personalized'}">个性化服务系统</el-menu-item>
+        <el-menu-item index="2" :route="{path:'/home'}">基金会系统</el-menu-item>
         <el-menu-item index="3" :route="{path:'/excl1'}">资金管理系统</el-menu-item>
         <el-menu-item index="4" :route="{path:'/excl1'}">志愿者服务系统</el-menu-item>
         <el-menu-item index="5" :route="{path:'/excl1'}">基础平台系统</el-menu-item>

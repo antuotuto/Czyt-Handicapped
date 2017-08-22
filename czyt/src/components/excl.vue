@@ -61,9 +61,7 @@ export default {
       console.log(index, row);
     }
   },
-  props: ["data"],
-  created() {
-  },
+  props: ["data"]
 }
 </script>
 

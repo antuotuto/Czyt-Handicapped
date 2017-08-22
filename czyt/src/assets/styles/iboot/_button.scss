@@ -1,0 +1,104 @@
+// Base styles
+
+.btn {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 30px;
+  padding: 0 15px;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 0;
+  //
+  &,
+  &.active,
+  &:active {
+    &.focus,
+    &:focus {
+      @include tab-focus();
+    }
+  }
+  @include hover-focus {
+    text-decoration: none;
+  }
+
+  &.focus {
+    text-decoration: none;
+  }
+
+  &.active,
+  &:active {
+    background-image: none;
+    outline: 0;
+  }
+
+  &.disabled,
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+}
+// Future-proof disabling of clicks on `<a>` elements
+
+a.btn.disabled,
+fieldset[disabled] a.btn {
+  pointer-events: none;
+}
+
+.btn-link {
+  font-weight: normal;
+  color: $brand-primary;
+  border-radius: 0;
+
+  &,
+  &.active,
+  &:active,
+  &:disabled {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &,
+  &:active,
+  &:focus {
+    border-color: transparent;
+  }
+  @include hover {
+    border-color: transparent;
+  }
+  @include hover-focus {
+    color: inherit;
+    text-decoration: none;
+    background-color: transparent;
+  }
+
+  &:disabled {
+    @include hover-focus {
+      color: gray;
+      text-decoration: none;
+    }
+  }
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+// Vertically space out multiple block buttons
+
+.btn-block + .btn-block {
+  margin-top: 15px;
+}
+// Specificity overrides
+
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  &.btn-block {
+    width: 100%;
+  }
+}

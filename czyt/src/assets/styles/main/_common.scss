@@ -1,0 +1,23 @@
+.container {
+    max-width: 100%;
+}
+
+#app {
+    height: 100%;
+}
+
+
+.status{
+  padding-left: 15px;
+}
+.status-success {
+    color: $brand-success;
+}
+
+.status-failed {
+    color: $brand-danger;
+}
+
+.status-processing {
+    color: $brand-warning;
+}

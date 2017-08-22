@@ -1,0 +1,354 @@
+@at-root {
+   @-ms-viewport{
+    width: device-width;
+  }
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  //
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif,monospace;
+  font-size: 14px;
+  line-height: 1.4;
+  // letter-spacing: 1px;
+  word-wrap: break-word;
+  color: black;
+  background-color: white;
+  //
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+// Links
+
+a {
+  color: $brand-primary;
+  text-decoration: none;
+
+  &:hover {
+    color: darken($brand-primary, 10);
+    text-decoration: inherit;
+  }
+
+  &:focus {
+    outline: none;
+    outline-offset: none;
+  }
+}
+
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  text-decoration: none;
+  @include hover-focus {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+dl,
+ol,
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+blockquote {
+  margin: 0 0 1rem;
+  //
+  padding: 15px;
+  margin-bottom: 15px;
+  border-left: 4px solid $brand-primary;
+}
+
+pre {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  overflow: auto;
+}
+
+figure {
+  margin: 0 0 1rem;
+}
+
+img {
+  vertical-align: middle;
+  line-height: 1;
+}
+
+table {
+  border-collapse: collapse;
+  background-color: transparent;
+}
+
+caption {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: red;
+  text-align: left;
+  caption-side: bottom;
+}
+
+th {
+  text-align: left;
+}
+//
+
+input:-webkit-autofill,
+select:-webkit-autofill,
+textarea:-webkit-autofill {
+  background-color: inherit;
+}
+//
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"] {
+  -webkit-appearance: listbox;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+//
+
+[hidden] {
+  display: none !important;
+}
+
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+
+[role="button"] {
+  cursor: pointer;
+}
+
+[role="button"],
+a,
+area,
+button,
+input,
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
+
+label {
+  display: inline-block;
+}
+
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+button,
+input,
+select,
+textarea {
+  line-height: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  line-height: inherit;
+}
+
+abbr[data-original-title],
+abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted $brand-primary;
+}
+
+address {
+  margin-bottom: 1rem;
+  font-style: normal;
+  line-height: inherit;
+}
+
+output {
+  display: inline-block;
+}
+
+
+
+// type
+
+.h1,
+h1 {
+  font-size: 30px;
+}
+
+.h2,
+h2 {
+  font-size: 24px;
+}
+
+.h3,
+h3 {
+  font-size: 20px;
+}
+
+.h4,
+h4 {
+  font-size: 18px;
+}
+
+.h5,
+h5 {
+  font-size: 16px;
+}
+
+.h6,
+h6 {
+  font-size: 14px;
+}
+
+.lead {}
+
+hr {
+  margin: 4px auto;
+  border: 0;
+  border-top: 1px solid gray;
+}
+
+.small,
+small {
+  font-size: 80%;
+  font-weight: normal;
+}
+
+.mark,
+mark {
+  padding: 15px;
+  background-color: red;
+}
+
+
+// Code
+// Inline and block code styles
+
+code,
+kbd,
+pre,
+samp {
+  $font-family-monospace: Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace !default;
+  font-family: $font-family-monospace;
+}
+
+code {
+  padding: 0.4rem 0.2rem;
+  font-size: 90%;
+  color: #bd4147;
+  background-color: #f7f7f9;
+  border-radius: 4px;
+}
+// User input typically entered via keyboard
+
+kbd {
+  padding: 0.4rem 0.2rem;
+  font-size: 90%;
+  color: white;
+  background-color: #333;
+  border-radius: 2px;
+  box-shadow: 0 0 6px 5px rgba(0,0,0,.3);
+
+  kbd {
+    padding: 0;
+    font-size: 100%;
+    font-weight: bold;
+    box-shadow: 0 0 6px 5px rgba(0,0,0,.3);
+  }
+}
+// Blocks of code
+
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 80%;
+  color: gray;
+
+  code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    border-radius: 0;
+  }
+}

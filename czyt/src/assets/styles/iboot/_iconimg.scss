@@ -1,0 +1,16 @@
+// $iconimg-dir: '../images';
+//
+// .icon-demo {
+//     background: url(#{$iconimg-dir}/iconimg-user.png) center center no-repeat;
+// }
+
+.iconimg {
+    display: inline-block;
+    padding: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+    line-height: inherit;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}

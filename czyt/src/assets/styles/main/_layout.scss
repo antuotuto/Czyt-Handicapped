@@ -1,0 +1,19 @@
+.col-left {
+    float: left;
+    width: 30%;
+    min-width: 180px;
+    max-width:210px;
+    height: 100%;
+    background-color: #2a2a36;
+    .el-menu--horizontal.el-menu--dark .el-submenu .el-menu-item.is-active,
+    .el-menu-item.is-active {
+        background-color: #1c1c24;
+        color: #21a2f2;
+    }
+}
+
+.col-right {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+}

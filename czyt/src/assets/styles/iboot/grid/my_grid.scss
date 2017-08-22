@@ -1,0 +1,52 @@
+// Grid breakpoints
+$grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px) !default;
+// Grid containers
+$container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1140px) !default;
+// Grid columns
+$grid-columns: 12 !default;
+$grid-gutter-width-base: 30px !default;
+$grid-gutter-widths: ( xs: $grid-gutter-width-base, sm: $grid-gutter-width-base, md: $grid-gutter-width-base, lg: $grid-gutter-width-base, xl: $grid-gutter-width-base) !default;
+
+@import "mixins/breakpoints";
+@import "grid-framework";
+@import "grid";
+
+// Container widths
+//
+// Set the container width, and override it for fixed navbars in media queries.
+
+@if $enable-grid-classes {
+  .container {
+    @include make-container();
+    @include make-container-max-widths();
+  }
+}
+
+// Fluid container
+//
+// Utilizes the mixin meant for fixed width containers, but without any defined
+// width for fluid, full width layouts.
+
+@if $enable-grid-classes {
+  .container-fluid {
+    @include make-container();
+  }
+}
+
+// Row
+//
+// Rows contain and clear the floats of your columns.
+
+@if $enable-grid-classes {
+  .row {
+    @include make-row();
+  }
+}
+
+// Columns
+//
+// Common styles for small and large grid columns
+
+@if $enable-grid-classes {
+  @include make-grid-columns();
+}

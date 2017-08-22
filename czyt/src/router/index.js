@@ -10,6 +10,18 @@ const Home = (resolve) => {
   })
 }
 
+const Personalized = (resolve) => {
+  import ('~/components/personalized.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const HcTaHicpinfo = (resolve) => {
+  import ('~/components/hcTaHicpinfo.vue').then((module) => {
+    resolve(module)
+  })
+}
+
 const Admin = (resolve) => {
   import ('~/components/admin.vue').then((module) => {
     resolve(module)
@@ -20,7 +32,7 @@ Vue.use(Router)
 
 const routes = [{
   path: '/',
-  redirect: '/home'
+  redirect: '/Personalized'
 }, {
   path: '/home',
   component: Home,
@@ -31,6 +43,30 @@ const routes = [{
     {
       path: '1',
       component: Admin
+    }, {
+      path: '2',
+      component: Admin
+    }, {
+      path: '3',
+      component: Admin
+    }, {
+      path: '4',
+      component: Admin
+    }, {
+      path: '*',
+      component: NotFoundComponent
+    }
+  ]
+},{
+  path: '/Personalized',
+  component: Home,
+  children: [{
+      path: '',
+      redirect: '1'
+    },
+    {
+      path: '1',
+      component: HcTaHicpinfo
     }, {
       path: '2',
       component: Admin
