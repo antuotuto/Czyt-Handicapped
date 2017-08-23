@@ -22,6 +22,13 @@ const HcTaHicpinfo = (resolve) => {
   })
 }
 
+const PersonalizedAdmin = (resolve) => {
+  import ('~/components/personalizedAdmin.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+
 const Admin = (resolve) => {
   import ('~/components/admin.vue').then((module) => {
     resolve(module)
@@ -69,7 +76,7 @@ const routes = [{
       component: HcTaHicpinfo
     }, {
       path: '2',
-      component: Admin
+      component: PersonalizedAdmin
     }, {
       path: '3',
       component: Admin

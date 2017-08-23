@@ -2,7 +2,7 @@ const table = [
     {
         title: '王安安',
         name: '王小虎',
-        admin: '张三四',
+        admin: '123',
         city:'北京',
         date: '2017/06/16  16:00',
         status: '发布',
@@ -12,7 +12,7 @@ const table = [
     {
         title: '北京CBD核心企业金融交易中心外贸采购软件研发主管',
         name: '王小虎',
-        admin: '张三四',
+        admin: '1234',
         city:'北京',
         date: '2017/06/16  16:00',
         status: '发布中',

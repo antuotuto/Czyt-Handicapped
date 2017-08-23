@@ -34,6 +34,25 @@
 
         </el-col>
       </el-row>
+      <el-row :gutter="20"  class="content-top">
+
+        <el-col :span="6">
+          <el-input v-model="input" placeholder="请输入内容"></el-input>
+
+        </el-col>
+        <el-col :span="6">
+          <el-input v-model="input" placeholder="请输入内容"></el-input>
+
+        </el-col>
+        <el-col :span="6">
+          <el-input v-model="input" placeholder="请输入内容"></el-input>
+
+        </el-col>
+        <el-col :span="6">
+          <el-input v-model="input" placeholder="请输入内容"></el-input>
+
+        </el-col>
+      </el-row>
       <el-row :gutter="20" class="content-top">
         <el-col :span="24">
           <el-button type="primary" icon="search">搜 索</el-button>
@@ -43,13 +62,6 @@
       </el-row>
     </div>
 
-    <!-- 常用搜索框 -->
-    <el-row :gutter="20" class="content-top">
-      <el-col :span="24">
-          <el-cascader :options="options" v-model="selectedOptions3" ></el-cascader>
-      </el-col>
-    </el-row>
-    <!--  -->
 
     <!-- 表格 -->
     <el-table :data="tableData" stripe tooltip-effect="dark" style="width: 100%" @selection-change="" class="content-top">

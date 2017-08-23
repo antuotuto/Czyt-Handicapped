@@ -1,6 +1,6 @@
 <template>
 <!--  -->
-<div class="selectComponents">
+<div class="personalizedAdmin">
     <h1>项目正在开发，敬请期待 ！！！</h1>
 </div>
 <!--  -->

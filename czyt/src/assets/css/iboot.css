@@ -1,7 +1,11 @@
-.crumbs{
-  padding: 15px;
+.content-excl-box{
   background: #fff;
-  margin-bottom: 15px;
+  padding: 30px 15px 15px 15px;
+}
+
+.crumbs{
+  background: #fff;
+  margin-bottom: 20px;
 }
 
 .content-tree{
@@ -9,13 +13,23 @@
 }
 
 .el-tree{
-  border: 0;
+
+}
+
+.right-select{
+  float: right;
+}
+
+.content-excl-box h1{
+  color: #1F2D3D;
+  padding:  0 0 15px 0;
 }
 
 .content-search{
-  background: #fff;
-  padding: 15px;
-  border-top: 3px solid #20A0FF;
+  background: #ECEFF1;
+  padding:20px 15px  15px 15px ;
+  border-radius: 5px;
+  text-align: right;
 }
 
 .content-top{

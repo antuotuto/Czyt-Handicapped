@@ -7,7 +7,7 @@
     <button type="button" name="button" @click="menuOn"  :class="[this.logo ? true : 'active', '']" >
       <i class="" :class="{'el-icon-menu':currentView == 'view-main','el-icon-close':currentView != 'view-main'}"></i>
     </button>
-    <el-col class="navbar" >
+    <!-- <el-col class="navbar" >
       <el-menu theme="light" default-active="1" mode="horizontal" :router="true">
         <el-menu-item index="1" :route="{path:'/personalized'}">个性化服务系统</el-menu-item>
         <el-menu-item index="2" :route="{path:'/home'}">基金会系统</el-menu-item>
@@ -15,7 +15,7 @@
         <el-menu-item index="4" :route="{path:'/excl1'}">志愿者服务系统</el-menu-item>
         <el-menu-item index="5" :route="{path:'/excl1'}">基础平台系统</el-menu-item>
       </el-menu>
-    </el-col>
+    </el-col> -->
     <ul class="admin-right">
       <li>王安安</li><li><i class="el-icon-share"></i></li>
     </ul>
@@ -68,7 +68,7 @@ export default {
 #app {
     font-family: Helvetica, sans-serif;
     height: 100%;
-    background: #eef1f6;
+    background: #F2F2F2;
 }
 
 header {
