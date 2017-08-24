@@ -14,93 +14,140 @@
     </div>
     <!--  -->
 
-    <div class="content-search">
-      <el-row :gutter="20">
+    <el-tabs type="border-card">
+      <el-tab-pane>
+        <span slot="label"><i class="el-icon-search"></i> 查找用户</span>
+        <div class="content-search">
+          <el-row :gutter="20">
 
-        <el-col :span="6">
-          <el-input v-model="input" placeholder="请输入内容"></el-input>
+            <el-col :span="6">
+              <el-input v-model="input" placeholder="请输入内容"></el-input>
 
-        </el-col>
-        <el-col :span="6">
-          <el-input v-model="input" placeholder="请输入内容"></el-input>
+            </el-col>
+            <el-col :span="6">
+              <el-input v-model="input" placeholder="请输入内容"></el-input>
 
-        </el-col>
-        <el-col :span="6">
-          <el-input v-model="input" placeholder="请输入内容"></el-input>
+            </el-col>
+            <el-col :span="6">
+              <el-input v-model="input" placeholder="请输入内容"></el-input>
 
-        </el-col>
-        <el-col :span="6">
-          <el-input v-model="input" placeholder="请输入内容"></el-input>
+            </el-col>
+            <el-col :span="6">
+              <el-input v-model="input" placeholder="请输入内容"></el-input>
 
-        </el-col>
-      </el-row>
-      <el-row :gutter="20" class="content-top">
-        <el-col :span="24">
-          <el-button type="primary" icon="search">搜 索</el-button>
-          <el-button>重 置</el-button>
+            </el-col>
+          </el-row>
+          <el-row :gutter="20" class="content-top">
+            <el-col :span="24">
+              <el-button type="primary" icon="search">搜 索</el-button>
+              <el-button>重 置</el-button>
 
-        </el-col>
-      </el-row>
-    </div>
+            </el-col>
+          </el-row>
+        </div>
 
-    <!-- 常用搜索框 -->
-    <el-row :gutter="20" class="content-top">
-      <el-col :span="24">
-          <el-cascader :options="options" v-model="selectedOptions3" ></el-cascader>
-      </el-col>
-    </el-row>
-    <!--  -->
+        <!-- 常用搜索框 -->
+        <el-row :gutter="20" class="content-top">
+          <el-col :span="24">
+            <el-cascader :options="options" v-model="selectedOptions3"></el-cascader>
+          </el-col>
+        </el-row>
+        <!--  -->
 
-    <!-- 表格 -->
-    <el-table :data="tableData" stripe tooltip-effect="dark" style="width: 100%" @selection-change="" class="content-top">
-      <el-table-column type="selection" width="55">
-      </el-table-column>
-      <el-table-column width="90" label="序号" align="center" @click.native="test(row)" fixed>
-        <template scope="scope">
-          wangan
-              </template>
-      </el-table-column>
-      <el-table-column width="" prop="" label="位置" align="center" sortable>
-        <template scope="scope">
-          就是这样的
-              </template>
-      </el-table-column>
-      <el-table-column width="" prop="" label="申请情况" align="center" sortable>
-        <template scope="scope">
-          确认
-              </template>
-      </el-table-column>
-      <el-table-column width="" label="姓名" prop="admin" align="center" sortable>
-      </el-table-column>
-      <el-table-column width="" label="年龄" prop="city" align="center" sortable>
-      </el-table-column>
-      <el-table-column width="" label="喜欢" prop="" align="center" sortable>
-        <template scope="scope">{{ scope.row.status }}</template>
-      </el-table-column>
-      </el-table-column>
-      <el-table-column label="操作" width="140" align="center">
-        <template scope="scope">
-       <el-button
-         size="small"
-         @click="handleEdit(scope.$index, scope.row)">查看</el-button>
-       <el-button
-         size="small"
-         type="primary"
-         @click="handleDelete(scope.$index, scope.row)">编辑</el-button>
-     </template>
-      </el-table-column>
-    </el-table>
-    <!--  -->
+        <!-- 表格 -->
+        <el-table :data="tableData" stripe tooltip-effect="dark" style="width: 100%" @selection-change="" class="content-top">
+          <el-table-column type="selection" width="55">
+          </el-table-column>
+          <el-table-column width="90" label="序号" align="center" @click.native="test(row)" fixed>
+            <template scope="scope">
+              wangan
+                  </template>
+          </el-table-column>
+          <el-table-column width="" prop="" label="位置" align="center" sortable>
+            <template scope="scope">
+              就是这样的
+                  </template>
+          </el-table-column>
+          <el-table-column width="" prop="" label="申请情况" align="center" sortable>
+            <template scope="scope">
+              确认
+                  </template>
+          </el-table-column>
+          <el-table-column width="" label="姓名" prop="admin" align="center" sortable>
+          </el-table-column>
+          <el-table-column width="" label="年龄" prop="city" align="center" sortable>
+          </el-table-column>
+          <el-table-column width="" label="喜欢" prop="" align="center" sortable>
+            <template scope="scope">{{ scope.row.status }}</template>
+          </el-table-column>
+          </el-table-column>
+          <el-table-column label="操作" width="140" align="center">
+            <template scope="scope">
+           <el-button
+             size="small"
+             @click="handleEdit(scope.$index, scope.row)">查看</el-button>
+           <el-button
+             size="small"
+             type="primary"
+             @click="handleDelete(scope.$index, scope.row)">编辑</el-button>
+         </template>
+          </el-table-column>
+        </el-table>
+        <!--  -->
+        <!-- 分页 -->
+        <el-row :gutter="20" class="content-top">
+          <el-col :span="6">
+            <el-popover ref="popover5" placement="top" width="160" v-model="visible2">
+              <p>这是一段内容这是一段内容确定删除吗？</p>
+              <div style="text-align: right; margin: 0">
+                <el-button size="mini" type="text" @click="visible2 = false">取消</el-button>
+                <el-button type="primary" size="mini" @click="delect">确定</el-button>
+              </div>
+            </el-popover>
+            <el-button type="danger" icon="delete" v-popover:popover5>删除</el-button>
+          </el-col>
+          <el-col :span="18" class="content-paging">
+            <el-pagination class="pagination" :small="true" @size-change="" @current-change="" :current-page="2" :page-size="10" layout="total, prev, pager, next, jumper" :total="100">
+            </el-pagination>
+          </el-col>
+        </el-row>
+        <!--  -->
+      </el-tab-pane>
+      <el-tab-pane label="消息中心">
+        <span slot="label"><i class="el-icon-plus"></i> 新增用户</span>
+        <!-- 新增表单 -->
+        <el-row :gutter="20">
+          <el-col :span="13" :offset="1">
+            <div class="grid-content bg-purple">
+              <el-form :label-position="labelPosition" label-width="100px" :model="formLabelAlign" ref="numberValidateForm">
+                <el-form-item label="名称 :">
+                  <el-input v-model="formLabelAlign.name"></el-input>
+                </el-form-item>
+                <el-form-item label="活动区域 :">
+                  <el-input v-model="formLabelAlign.region"></el-input>
+                </el-form-item>
+                <el-form-item label="活动形式 :">
+                  <el-input v-model="formLabelAlign.type"></el-input>
+                </el-form-item>
+                <el-form-item label="活动地点 :">
+                  <el-input v-model="formLabelAlign.type"></el-input>
+                </el-form-item>
+                <el-form-item>
+                  <el-button type="primary" @click="submitForm('numberValidateForm')">提交</el-button>
+                  <el-button @click="resetForm('numberValidateForm')">重置</el-button>
+                </el-form-item>
+                </el-form-item>
+              </el-form>
+            </div>
+          </el-col>
+          <el-col :span="10">
+            <div class="grid-content bg-purple"></div>
+          </el-col>
+        </el-row>
+        <!--  -->
+      </el-tab-pane>
+    </el-tabs>
 
-    <el-row :gutter="20" class="content-top">
-      <el-col :span="6">
-        <el-button type="danger" icon="delete">删除</el-button>
-      </el-col>
-      <el-col :span="18" class="content-paging">
-        <el-pagination class="pagination" :small="true" @size-change="" @current-change="" :current-page="2" :page-size="10" layout="total, prev, pager, next, jumper" :total="100">
-        </el-pagination>
-      </el-col>
-    </el-row>
 
   </div>
 
@@ -127,6 +174,14 @@ import {
 export default {
   data() {
     return {
+      visible2: false,
+      //
+      labelPosition: 'top',
+      formLabelAlign: {
+        name: '',
+        region: '',
+        type: ''
+      },
       // 手风琴
       data: [{
         label: '一级 1',
@@ -168,13 +223,6 @@ export default {
         label: 'label'
       },
       //
-      // 表单
-      labelPosition: 'right',
-      formLabelAlign: {
-        name: '',
-        region: '',
-        type: ''
-      },
       input: '',
       input2: '',
       //
@@ -379,23 +427,41 @@ export default {
           label: '组件交互文档'
         }]
       }],
-      selectedOptions3: ['zujian', 'data', 'tag']
+      selectedOptions3: ['zujian', 'data', 'tag'],
+      activeName: 'first'
+    }
+  },
+  methods: {
+    handleNodeClick(data) {
+      console.log(data);
+    },
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`);
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
+    },
+    handleClick(tab, event) {
+      console.log(tab, event);
+    },
+    submitForm(formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert('submit!');
+        } else {
+          console.log('error submit!!');
+          return false;
+        }
+      });
+    },
+    delect() {
+      this.visible2 = false;
+      this.$message({
+        message: '恭喜你，这是一条成功消息',
+        type: 'success'
+      });
+    }
   }
-},
-methods: {
-  handleNodeClick(data) {
-    console.log(data);
-  },
-  handleSizeChange(val) {
-    console.log(`每页 ${val} 条`);
-  },
-  handleCurrentChange(val) {
-    console.log(`当前页: ${val}`);
-  },
-  handleIconClick(ev) {
-    console.log(ev);
-  }
-}
 }
 </script>
 

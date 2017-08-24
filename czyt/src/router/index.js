@@ -28,6 +28,12 @@ const PersonalizedAdmin = (resolve) => {
   })
 }
 
+const Echarts = (resolve) => {
+  import ('~/components/echarts.vue').then((module) => {
+    resolve(module)
+  })
+}
+
 
 const Admin = (resolve) => {
   import ('~/components/admin.vue').then((module) => {
@@ -79,7 +85,7 @@ const routes = [{
       component: PersonalizedAdmin
     }, {
       path: '3',
-      component: Admin
+      component: Echarts
     }, {
       path: '4',
       component: Admin
@@ -88,6 +94,9 @@ const routes = [{
       component: NotFoundComponent
     }
   ]
+},{
+  path: '/echarts',
+  component: Echarts,
 }, {
   path: '*',
   component: NotFoundComponent

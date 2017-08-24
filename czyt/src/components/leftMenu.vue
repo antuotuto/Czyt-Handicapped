@@ -1,7 +1,7 @@
 <template>
 <!--  -->
 <div class="leftMenu" :class="[this.logo ? true : 'active', '']">
-  <el-menu default-active="4-4-1" class="el-menu-vertical-demo" :collapse="!this.logo" theme="dark" :router="true" :unique-opened="true">
+  <el-menu default-active="" class="el-menu-vertical-demo" :collapse="!this.logo" theme="dark" :router="true" :unique-opened="true">
     <el-menu-item index="1">
       <i class="el-icon-menu"></i>
       <span slot="title">残疾人基础信息</span>

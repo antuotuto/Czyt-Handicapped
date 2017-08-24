@@ -14,7 +14,7 @@
     </div>
     <!--  -->
 
-    <div class="content-search">
+    <div class="content-search ">
       <el-row :gutter="20">
 
         <el-col :span="6">
@@ -34,7 +34,7 @@
 
         </el-col>
       </el-row>
-      <el-row :gutter="20"  class="content-top">
+      <el-row :gutter="20" class="content-top">
 
         <el-col :span="6">
           <el-input v-model="input" placeholder="请输入内容"></el-input>

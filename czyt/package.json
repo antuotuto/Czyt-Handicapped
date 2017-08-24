@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "better-scroll": "^0.1.15",
+    "echarts": "^3.7.0",
     "element-ui": "^1.4.2",
     "vconsole": "^2.5.2",
     "vue": "^2.4.2"
