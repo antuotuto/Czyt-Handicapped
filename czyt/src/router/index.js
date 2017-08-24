@@ -34,6 +34,30 @@ const Echarts = (resolve) => {
   })
 }
 
+const EducationHandicapped = (resolve) => {
+  import ('~/components/educationHandicapped.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const EducationHandicapped0 = (resolve) => {
+  import ('~/components/educationHandicapped0.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const EducationHandicapped1 = (resolve) => {
+  import ('~/components/educationHandicapped1.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const EducationHandicapped2 = (resolve) => {
+  import ('~/components/educationHandicapped2.vue').then((module) => {
+    resolve(module)
+  })
+}
+
 
 const Admin = (resolve) => {
   import ('~/components/admin.vue').then((module) => {
@@ -65,9 +89,6 @@ const routes = [{
     }, {
       path: '4',
       component: Admin
-    }, {
-      path: '*',
-      component: NotFoundComponent
     }
   ]
 },{
@@ -87,16 +108,22 @@ const routes = [{
       path: '3',
       component: Echarts
     }, {
-      path: '4',
-      component: Admin
-    }, {
-      path: '*',
-      component: NotFoundComponent
+      path: '4-4-1',
+      component: EducationHandicapped
+    },{
+      path: '4-4-2',
+      component: EducationHandicapped0
+    },{
+      path: '4-4-3',
+      component: EducationHandicapped1
+    },{
+      path: '4-4-4',
+      component: EducationHandicapped2
+    },{
+      path: '4-4-5',
+      component: EducationHandicapped
     }
   ]
-},{
-  path: '/echarts',
-  component: Echarts,
 }, {
   path: '*',
   component: NotFoundComponent

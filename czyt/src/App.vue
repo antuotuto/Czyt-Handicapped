@@ -1,7 +1,7 @@
 <template>
 <div id="app">
   <header  :class="[this.logo ? true : 'active', '']" >
-    <router-link to="/home">
+    <router-link to="/">
       <p  :class="[this.logo ? true : 'active', '']" >海南残联管理系统</p>
     </router-link>
     <button type="button" name="button" @click="menuOn"  :class="[this.logo ? true : 'active', '']" >
