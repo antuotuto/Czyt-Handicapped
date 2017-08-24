@@ -67,7 +67,7 @@
     <el-table :data="tableData" stripe tooltip-effect="dark" style="width: 100%" @selection-change="" class="content-top">
       <el-table-column type="selection" width="55">
       </el-table-column>
-      <el-table-column width="90" label="序号" align="center" @click.native="test(row)" fixed>
+      <el-table-column width="90" label="序号" align="center" @click.native="test(row)" >
         <template scope="scope">
           wangan
               </template>

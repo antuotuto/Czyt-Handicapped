@@ -89,6 +89,9 @@ const routes = [{
     }, {
       path: '4',
       component: Admin
+    }, {
+      path: '*',
+      component: NotFoundComponent
     }
   ]
 },{
@@ -122,6 +125,9 @@ const routes = [{
     },{
       path: '4-4-5',
       component: EducationHandicapped
+    }, {
+      path: '*',
+      component: NotFoundComponent
     }
   ]
 }, {

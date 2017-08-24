@@ -1,12 +1,28 @@
 <template>
 <div id="app">
-  <header  :class="[this.logo ? true : 'active', '']" >
+  <header :class="[this.logo ? true : 'active', '']">
     <router-link to="/">
-      <p  :class="[this.logo ? true : 'active', '']" >海南残联管理系统</p>
+      <p :class="[this.logo ? true : 'active', '']">海南残联管理系统</p>
     </router-link>
-    <button type="button" name="button" @click="menuOn"  :class="[this.logo ? true : 'active', '']" >
-      <i class="" :class="{'el-icon-menu':currentView == 'view-main','el-icon-close':currentView != 'view-main'}"></i>
+    <button type="button" name="button" @click="menuOn" :class="[this.logo ? true : 'active', '']">
+      <i class="" :class="{'el-icon-caret-left':currentView == 'view-main','el-icon-menu':currentView != 'view-main'}"></i>
     </button>
+    <div class="selectionSystem">
+      <template>
+        <el-tooltip class="item" effect="dark" content="请选择系统" placement="right">
+          <el-select v-model="value" placeholder="请选择">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </el-tooltip>
+      </template>
+    </div>
+
+
     <!-- <el-col class="navbar" >
       <el-menu theme="light" default-active="1" mode="horizontal" :router="true">
         <el-menu-item index="1" :route="{path:'/personalized'}">个性化服务系统</el-menu-item>
@@ -17,7 +33,7 @@
       </el-menu>
     </el-col> -->
     <ul class="admin-right">
-      <li>王安安</li><li><i class="el-icon-share"></i></li>
+      <li>王安安</li><li><i class="el-icon-close"></i></li>
     </ul>
   </header>
   <main>
@@ -39,6 +55,23 @@ export default {
   data() {
     return {
       currentView: 'view-main',
+      options: [{
+          value: '选项1',
+          label: '个性化服务'
+        }, {
+          value: '选项2',
+          label: '残疾人管理'
+        }, {
+          value: '选项3',
+          label: '普通人'
+        }, {
+          value: '选项4',
+          label: '菜单管理'
+        }, {
+          value: '选项5',
+          label: '人员管理'
+        }],
+        value: '选项1'
     }
   },
   methods: {
@@ -72,35 +105,37 @@ export default {
 }
 
 header {
-    height: 60px;
+    height: 50px;
     padding-left: 260px;
     position: relative;
     z-index: 1000;
     background: #fff;
     transition: 0.5s;
-    .admin-right{
-      position: absolute;
-      right:0;
-      top:0;
-      li{
-        height:60px;
-        line-height: 60px;
-        list-style: none;
-        display: inline-block;
-        padding: 0 25px;
-        background: #E5E9F2;
-      }
+    .admin-right {
+        position: absolute;
+        right: 0;
+        top: 0;
+        li {
+            height: 50px;
+            line-height: 50px;
+            list-style: none;
+            display: inline-block;
+            padding: 0 20px;
+            &:hover {
+                background: #E5E9F2;
+            }
+        }
     }
-    &.active{
-      padding-left: 120px;
+    &.active {
+        padding-left: 120px;
     }
     p {
         position: absolute;
         top: 0;
         left: 0;
         width: 200px;
-        height: 61px;
-        line-height: 60px;
+        height: 51px;
+        line-height: 50px;
         text-align: center;
         background: #324157;
         color: #fff;
@@ -116,8 +151,8 @@ header {
         background: #fff;
     }
     button {
-        height: 60px;
-        width: 60px;
+        height: 50px;
+        width: 50px;
         font-size: 16px;
         color: #48576a;
         position: absolute;
@@ -127,14 +162,27 @@ header {
         border: 0;
         outline: none;
         transition: 0.5s;
-        &:hover{
-          background: #8492A6;
-          color:#fff;
+        &:hover {
+            background: #8492A6;
+            color: #fff;
         }
-        &.active{
-          left:64px;
+        &.active {
+            left: 64px;
         }
     }
+}
+
+.selectionSystem{
+  padding: 5px;
+  input{
+    // border: 0;
+    height:40px;
+    width:300px;
+  }
+  span{
+    font-size: 14px;
+    padding-left: 50px;
+  }
 }
 
 main {
@@ -143,7 +191,7 @@ main {
     position: absolute;
     top: 0;
     left: 0;
-    padding-top: 60px;
+    padding-top: 50px;
     box-sizing: border-box;
 }
 

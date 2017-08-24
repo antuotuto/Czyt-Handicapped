@@ -9,6 +9,9 @@ import './assets/css/delay.css'
 // 自定义样式
 import './assets/css/iboot.css'
 
+// 自定义样式
+import './assets/font_rtlpub24qcymbo6r/iconfont.css'
+
 // echarts
 import echarts from "echarts"
 
