@@ -10,6 +10,12 @@ const Home = (resolve) => {
   })
 }
 
+const Home0 = (resolve) => {
+  import ('~/components/home0.vue').then((module) => {
+    resolve(module)
+  })
+}
+
 const Personalized = (resolve) => {
   import ('~/components/personalized.vue').then((module) => {
     resolve(module)
@@ -65,11 +71,33 @@ const Admin = (resolve) => {
   })
 }
 
+
+// 首页
+
+const Lobby = (resolve) => {
+  import ('~/components/lobby.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const Lobby0 = (resolve) => {
+  import ('~/components/lobby0.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const DesignCode = (resolve) => {
+  import ('~/components/designCode.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+
 Vue.use(Router)
 
 const routes = [{
   path: '/',
-  redirect: '/Personalized'
+  redirect: '/Home0'
 }, {
   path: '/home',
   component: Home,
@@ -110,6 +138,42 @@ const routes = [{
     }, {
       path: '3',
       component: Echarts
+    }, {
+      path: '4-4-1',
+      component: EducationHandicapped
+    },{
+      path: '4-4-2',
+      component: EducationHandicapped0
+    },{
+      path: '4-4-3',
+      component: EducationHandicapped1
+    },{
+      path: '4-4-4',
+      component: EducationHandicapped2
+    },{
+      path: '4-4-5',
+      component: EducationHandicapped
+    }, {
+      path: '*',
+      component: NotFoundComponent
+    }
+  ]
+},{
+  path: '/Home0',
+  component: Home0,
+  children: [{
+      path: '',
+      redirect: '1'
+    },
+    {
+      path: '1',
+      component: Lobby
+    }, {
+      path: '2',
+      component: DesignCode
+    }, {
+      path: '3',
+      component: Lobby0
     }, {
       path: '4-4-1',
       component: EducationHandicapped

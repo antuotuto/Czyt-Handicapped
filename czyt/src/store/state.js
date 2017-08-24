@@ -1,6 +1,6 @@
 const state = {
   singer: true,
-  logo: true
+  logo: false
 }
 
 export default state

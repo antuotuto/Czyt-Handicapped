@@ -1,7 +1,7 @@
 <template>
 <!--  -->
-<div class="leftMenu" :class="[this.logo ? true : 'active', '']">
-  <el-menu default-active="1" class="el-menu-vertical-demo" :collapse="!this.logo" theme="" :router="true" :unique-opened="true">
+<div class="leftMenu" >
+  <el-menu default-active="" class="el-menu-vertical-demo" :collapse="this.logo" theme="dark" :router="true" :unique-opened="true">
     <el-menu-item index="1">
       <i class="el-icon-menu"></i>
       <span slot="title">残疾人基础信息</span>
@@ -42,29 +42,24 @@
 </template>
 
 <script>
-import {
-  mapGetters
-} from 'vuex'
+
 export default {
   components: {},
   data() {
-    return {}
+    return {
+      logo:false
+    }
   },
   methods: {
 
   },
   created() {
-    console.log(this.logo);
   },
   computed: {
-    ...mapGetters([
-      'logo'
-    ])
+
   },
   watch: {
-    change() {
-      return this.logo
-    },
+
   },
   directives: {},
   mounted() {}
@@ -76,17 +71,8 @@ export default {
     width: 200px;
     transition: 0.5s;
     height: 100%;
-    background: #fff;
-    .el-menu{
-      background: #fff;
-    }
     &.active {
         width: 64px;
     }
-    .el-menu-item{
-      font-weight: 300;
-    }
 }
-
-
 </style>

@@ -7,31 +7,16 @@
     <button type="button" name="button" @click="menuOn" :class="[this.logo ? true : 'active', '']">
       <i class="" :class="{'el-icon-caret-left':currentView == 'view-main','el-icon-menu':currentView != 'view-main'}"></i>
     </button>
-    <div class="selectionSystem">
-      <template>
-        <el-tooltip class="item" effect="dark" content="请选择系统" placement="right">
-          <el-select v-model="value" placeholder="请选择">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
-        </el-tooltip>
-      </template>
-    </div>
 
-
-    <!-- <el-col class="navbar" >
+    <el-col class="navbar" >
       <el-menu theme="light" default-active="1" mode="horizontal" :router="true">
-        <el-menu-item index="1" :route="{path:'/personalized'}">个性化服务系统</el-menu-item>
+        <el-menu-item index="1" :route="{path:'/home0'}">个性化服务系统</el-menu-item>
         <el-menu-item index="2" :route="{path:'/home'}">基金会系统</el-menu-item>
         <el-menu-item index="3" :route="{path:'/excl1'}">资金管理系统</el-menu-item>
         <el-menu-item index="4" :route="{path:'/excl1'}">志愿者服务系统</el-menu-item>
-        <el-menu-item index="5" :route="{path:'/excl1'}">基础平台系统</el-menu-item>
+        <el-menu-item index="5" :route="{path:'/personalized'}">基础平台系统</el-menu-item>
       </el-menu>
-    </el-col> -->
+    </el-col>
     <ul class="admin-right">
       <li>王安安</li><li><i class="el-icon-close"></i></li>
     </ul>
@@ -54,7 +39,7 @@ import {
 export default {
   data() {
     return {
-      currentView: 'view-main',
+      currentView: 'view-down',
       options: [{
           value: '选项1',
           label: '个性化服务'
@@ -105,25 +90,23 @@ export default {
 }
 
 header {
-    height: 50px;
+    height: 60px;
     padding-left: 260px;
     position: relative;
     z-index: 1000;
-    background: #fff;
     transition: 0.5s;
     .admin-right {
         position: absolute;
         right: 0;
         top: 0;
         li {
-            height: 50px;
-            line-height: 50px;
+            height: 60px;
+            line-height: 60px;
             list-style: none;
             display: inline-block;
             padding: 0 20px;
-            &:hover {
-                background: #E5E9F2;
-            }
+            color:#fff;
+            font-weight: 300;
         }
     }
     &.active {
@@ -134,10 +117,10 @@ header {
         top: 0;
         left: 0;
         width: 200px;
-        height: 51px;
-        line-height: 50px;
+        height: 60px;
+        line-height: 60px;
         text-align: center;
-        background: #324157;
+        background-color: #2945cb;
         color: #fff;
         font-weight: bold;
         font-size: 18px;
@@ -148,23 +131,23 @@ header {
         }
     }
     .el-menu {
-        background: #fff;
+        background-color: #2b83f9;
+        background-image: linear-gradient(143deg,#2945cb 20%,#2b83f9 81%,#3a9dff);
     }
     button {
-        height: 50px;
-        width: 50px;
+        height: 60px;
+        width: 60px;
         font-size: 16px;
-        color: #48576a;
+        color: #fff;
         position: absolute;
         left: 200px;
         top: 0;
-        background: #E5E9F2;
+        background: #2945cb;
         border: 0;
         outline: none;
         transition: 0.5s;
         &:hover {
-            background: #8492A6;
-            color: #fff;
+            background: #2b83f9;
         }
         &.active {
             left: 64px;
@@ -175,7 +158,6 @@ header {
 .selectionSystem{
   padding: 5px;
   input{
-    // border: 0;
     height:40px;
     width:300px;
   }
@@ -191,13 +173,24 @@ main {
     position: absolute;
     top: 0;
     left: 0;
-    padding-top: 50px;
+    padding-top: 60px;
     box-sizing: border-box;
 }
 
+.navbar .el-menu-item{
+  color: #fff;
+  opacity: .69;
+  font-weight: 300;
+}
+
 .navbar .el-menu-item.is-active {
-    border-bottom: 5px solid #20a0ff;
-    background-color: #eef1f6;
+    border-bottom: 5px solid #4fe3c1;
+    opacity: 1;
+}
+
+.navbar .el-menu-item:hover {
+    background-color: #2945cb;
+    border-bottom: 5px solid #4fe3c1;
 }
 
 ::-webkit-scrollbar {
