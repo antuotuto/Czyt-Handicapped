@@ -4,21 +4,61 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-  <title>element-starter</title>
+  <title>管理系统</title>
   <link rel="icon" href="http://ooi407n8x.bkt.clouddn.com/an.jpg">
-  <style media="screen">
-    html{
-      height:100%;
-    }
-    body{
+  <style>
+    body {
       margin: 0;
-      height:100%;
+      padding: 0;
+    }
+
+    .loading {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 100000;
+      background: #1D8CE0;
+      text-align: center;
+      line-height: 200px;
+      font-weight: bold;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dont-wor p {
+      font-size: 15px;
+      height: 65px;
+      line-height: 65px;
+      width: 200px;
+      border-radius: 4px;
+      background: #fff;
+      box-shadow: 0 5px 10px rgba(27, 55, 75, 0.08);
+      text-align: center;
+      font-weight: bold;
+      color: #777;
+    }
+
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 
 <body>
+  <div class=loading id=loading>
+    <div class=dont-wor>
+      <p>财资易通正在加载 <i class=el-icon-loading></i></p>
+    </div>
+  </div>
   <div id="app"></div>
-<script type="text/javascript" src="manifest.js?7f961346e2f16b46f559"></script><script type="text/javascript" src="vendor.js?3744220eb840d338ffa0"></script><script type="text/javascript" src="index.js?6f8b80260172e7e14f05"></script></body>
+  <script type=text/javascript>
+    window.onload = function() {
+      var loading = document.getElementById('loading')
+      loading.classList.add('hidden')
+    }
+  </script>
+<script type="text/javascript" src="manifest.js?e0623fcb832c7a732309"></script><script type="text/javascript" src="vendor.js?8acd6277e6435c16c673"></script><script type="text/javascript" src="index.js?fb2ef4ec6493be7aa9ea"></script></body>
 
 </html>
