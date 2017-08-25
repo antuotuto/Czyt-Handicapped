@@ -8,7 +8,7 @@
       <i class="" :class="{'el-icon-caret-left':currentView == 'view-main','el-icon-menu':currentView != 'view-main'}"></i>
     </button>
 
-    <el-col class="navbar" >
+    <el-col class="navbar">
       <el-menu theme="light" default-active="1" mode="horizontal" :router="true">
         <el-menu-item index="1" :route="{path:'/home0'}">首页展示</el-menu-item>
         <el-menu-item index="2" :route="{path:'/DesignCode'}">关于设计</el-menu-item>
@@ -18,14 +18,25 @@
       </el-menu>
     </el-col>
     <ul class="admin-right">
-      <li>王安安</li><li><i class="el-icon-close"></i></li>
+      <li>王安安</li>
+      <li><i class="el-icon-close"></i></li>
     </ul>
   </header>
   <main>
     <router-view></router-view>
   </main>
+
+  <el-dialog title="新增功能" :visible.sync="dialogVisible" size="tiny" :before-close="handleClose">
+    <span class="new">新增 <span>表格可选择显示</span> 功能 见：系统体验 / 残疾人基础信息</span>
+    <span slot="footer" class="dialog-footer">
+    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+  </span>
+  </el-dialog>
+
+
 </div>
 </template>
+
 
 <script>
 import {
@@ -39,24 +50,25 @@ import {
 export default {
   data() {
     return {
+      dialogVisible: true,
       currentView: 'view-down',
       options: [{
-          value: '选项1',
-          label: '个性化服务'
-        }, {
-          value: '选项2',
-          label: '残疾人管理'
-        }, {
-          value: '选项3',
-          label: '普通人'
-        }, {
-          value: '选项4',
-          label: '菜单管理'
-        }, {
-          value: '选项5',
-          label: '人员管理'
-        }],
-        value: '选项1'
+        value: '选项1',
+        label: '个性化服务'
+      }, {
+        value: '选项2',
+        label: '残疾人管理'
+      }, {
+        value: '选项3',
+        label: '普通人'
+      }, {
+        value: '选项4',
+        label: '菜单管理'
+      }, {
+        value: '选项5',
+        label: '人员管理'
+      }],
+      value: '选项1'
     }
   },
   methods: {
@@ -68,6 +80,13 @@ export default {
         this.currentView = 'view-main'
         this.setLogo(true)
       }
+    },
+    handleClose(done) {
+      this.$confirm('确认关闭')
+        .then(_ => {
+          done();
+        })
+        .catch(_ => {});
     },
     ...mapMutations({
       setLogo: 'SET_LOGO'
@@ -83,6 +102,12 @@ export default {
 </script>
 
 <style lang="scss">
+.new{
+  line-height: 20px;
+  span{
+    color:red;
+  }
+}
 #app {
     font-family: Helvetica, sans-serif;
     height: 100%;
@@ -105,7 +130,7 @@ header {
             list-style: none;
             display: inline-block;
             padding: 0 20px;
-            color:#fff;
+            color: #fff;
             font-weight: 300;
         }
     }
@@ -155,16 +180,16 @@ header {
     }
 }
 
-.selectionSystem{
-  padding: 5px;
-  input{
-    height:40px;
-    width:300px;
-  }
-  span{
-    font-size: 14px;
-    padding-left: 50px;
-  }
+.selectionSystem {
+    padding: 5px;
+    input {
+        height: 40px;
+        width: 300px;
+    }
+    span {
+        font-size: 14px;
+        padding-left: 50px;
+    }
 }
 
 main {
@@ -177,17 +202,16 @@ main {
     box-sizing: border-box;
 }
 
-.navbar .el-menu-item{
-  color: #fff;
-  opacity: .69;
-  font-weight: 300;
+.navbar .el-menu-item {
+    color: #fff;
+    opacity: 0.69;
+    font-weight: 300;
 }
 
 .navbar .el-menu-item.is-active {
     border-bottom: 5px solid #4fe3c1;
     opacity: 1;
 }
-
 .navbar .el-menu-item:hover {
     background-color: #2945cb;
     border-bottom: 5px solid #4fe3c1;

@@ -54,34 +54,32 @@
         </el-row>
         <!--  -->
 
+        <div class="filter-container content-top">
+          <el-checkbox-group v-model="checkboxVal">
+            <el-checkbox label="apple">apple</el-checkbox>
+            <el-checkbox label="banana">banana</el-checkbox>
+            <el-checkbox label="orange">orange</el-checkbox>
+            <el-checkbox label="an">an</el-checkbox>
+          </el-checkbox-group>
+        </div>
+
         <!-- 表格 -->
         <el-table :data="tableData" stripe tooltip-effect="dark" style="width: 100%" @selection-change="" class="content-top">
-          <el-table-column type="selection" width="55">
+          <el-table-column type="selection" width="">
           </el-table-column>
-          <el-table-column width="90" label="序号" align="center" @click.native="test(row)" fixed>
+          <el-table-column width="90" label="序号" align="center" @click.native="test(row)">
             <template scope="scope">
               wangan
                   </template>
           </el-table-column>
-          <el-table-column width="" prop="" label="位置" align="center" sortable>
+
+          <el-table-column :key='fruit' v-for='(fruit,index) in formThead' :label="fruit" align="center">
             <template scope="scope">
-              就是这样的
-                  </template>
+              {{scope.row[fruit]}}
+            </template>
           </el-table-column>
-          <el-table-column width="" prop="" label="申请情况" align="center" sortable>
-            <template scope="scope">
-              确认
-                  </template>
-          </el-table-column>
-          <el-table-column width="" label="姓名" prop="admin" align="center" sortable>
-          </el-table-column>
-          <el-table-column width="" label="年龄" prop="city" align="center" sortable>
-          </el-table-column>
-          <el-table-column width="" label="喜欢" prop="" align="center" sortable>
-            <template scope="scope">{{ scope.row.status }}</template>
-          </el-table-column>
-          </el-table-column>
-          <el-table-column label="操作" width="140" align="center">
+
+          <el-table-column label="操作" width="" align="center">
             <template scope="scope">
            <el-button
              size="small"
@@ -171,11 +169,105 @@ import {
   table
 } from '~/data';
 
+const defaultFormThead = ['apple', 'banana']; // 默认选中项
+
 export default {
   data() {
     return {
-      visible2: false,
+      key: 1, // table key
+      formTheadOptions: ['apple', 'banana', 'orange','an'], // 可选择表头
+      checkboxVal: defaultFormThead, // checkboxVal
+      formThead: defaultFormThead, // 默认表头
+      tableData: [{
+          name: 'fruit-1',
+          apple: 'apple-10',
+          banana: 'banana-10',
+          orange: 'orange-10',
+          an:'1'
+        },
+        {
+          name: 'fruit-2',
+          apple: 'apple-20',
+          banana: 'banana-20',
+          orange: 'orange-20',
+          an:'1'
+
+        },
+        {
+          name: 'fruit-2',
+          apple: 'apple-20',
+          banana: 'banana-20',
+          orange: 'orange-20',
+          an:'1'
+
+        },
+        {
+          name: 'fruit-2',
+          apple: 'apple-20',
+          banana: 'banana-20',
+          orange: 'orange-20',
+          an:'1'
+
+        },
+        {
+          name: 'fruit-2',
+          apple: 'apple-20',
+          banana: 'banana-20',
+          orange: 'orange-20',
+          an:'1'
+
+        },
+        {
+          name: 'fruit-2',
+          apple: 'apple-20',
+          banana: 'banana-20',
+          orange: 'orange-20',
+          an:'1'
+
+        },
+        {
+          name: 'fruit-2',
+          apple: 'apple-20',
+          banana: 'banana-20',
+          orange: 'orange-20',
+          an:'1'
+
+        },
+        {
+          name: 'fruit-2',
+          apple: 'apple-20',
+          banana: 'banana-20',
+          orange: 'orange-20',
+          an:'1'
+
+        },
+        {
+          name: 'fruit-2',
+          apple: 'apple-20',
+          banana: 'banana-20',
+          orange: 'orange-20',
+          an:'1'
+
+        },
+        {
+          name: 'fruit-2',
+          apple: 'apple-20',
+          banana: 'banana-20',
+          orange: 'orange-20',
+          an:'1'
+
+        },
+        {
+          name: 'fruit-2',
+          apple: 'apple-20',
+          banana: 'banana-20',
+          orange: 'orange-20',
+          an:'1'
+
+        }
+      ],
       //
+      visible2: false,
       labelPosition: 'top',
       formLabelAlign: {
         name: '',
@@ -227,7 +319,6 @@ export default {
       input2: '',
       //
       // 表格
-      tableData: table,
       currentPage1: 5,
       currentPage2: 5,
       currentPage3: 5,
@@ -460,6 +551,12 @@ export default {
         message: '恭喜你，这是一条成功消息',
         type: 'success'
       });
+    }
+  },
+  watch: {
+    checkboxVal(valArr) {
+      this.formThead = this.formTheadOptions.filter(i => valArr.indexOf(i) >= 0);
+      this.key = this.key + 1; // 为了保证table 每次都会重渲 （牺牲性能保证效果，当然也可以不用）
     }
   }
 }

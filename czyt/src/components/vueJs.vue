@@ -1,7 +1,7 @@
 <template>
 <!--  -->
 <div class="personalizedAdmin">
-    <h1>vueJs</h1>
+    <h1>vue.js</h1>
 </div>
 <!--  -->
 </template>
