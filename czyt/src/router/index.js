@@ -194,6 +194,9 @@ const routes = [{
       component: NotFoundComponent
     }
   ]
+},{
+  path: '/DesignCode',
+  component: DesignCode,
 }, {
   path: '*',
   component: NotFoundComponent
