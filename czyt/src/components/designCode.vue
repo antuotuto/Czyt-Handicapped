@@ -4,7 +4,7 @@
     <div class="versions">
       <p>2.0</p>
     </div>
-    <p class="header-text">WEB端财资易通视觉设计规范</p>
+    <p class="header-text">WEB端海南残联设计规范</p>
   </div>
 
   <div class="designCode-main">

@@ -16,6 +16,12 @@ const Home0 = (resolve) => {
   })
 }
 
+const Home1 = (resolve) => {
+  import ('~/components/home1.vue').then((module) => {
+    resolve(module)
+  })
+}
+
 const Personalized = (resolve) => {
   import ('~/components/personalized.vue').then((module) => {
     resolve(module)
@@ -92,6 +98,50 @@ const DesignCode = (resolve) => {
   })
 }
 
+// 前端优化
+
+const VueJs = (resolve) => {
+  import ('~/components/vueJs.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const Sass = (resolve) => {
+  import ('~/components/sass.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const VueRouter = (resolve) => {
+  import ('~/components/vueRouter.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const Vuex = (resolve) => {
+  import ('~/components/vuex.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const Element = (resolve) => {
+  import ('~/components/element.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const AntDesign = (resolve) => {
+  import ('~/components/antDesign.vue').then((module) => {
+    resolve(module)
+  })
+}
+
+const Echart = (resolve) => {
+  import ('~/components/echart.vue').then((module) => {
+    resolve(module)
+  })
+}
+
 
 Vue.use(Router)
 
@@ -159,41 +209,44 @@ const routes = [{
     }
   ]
 },{
-  path: '/Home0',
-  component: Home0,
+  path: '/Home1',
+  component: Home1,
   children: [{
       path: '',
       redirect: '1'
     },
     {
       path: '1',
-      component: Lobby
+      component: VueJs
     }, {
       path: '2',
-      component: DesignCode
+      component: Sass
     }, {
       path: '3',
-      component: Lobby0
+      component: VueRouter
     }, {
-      path: '4-4-1',
-      component: EducationHandicapped
+      path: '4',
+      component: Vuex
     },{
-      path: '4-4-2',
-      component: EducationHandicapped0
+      path: '5',
+      component: Element
     },{
-      path: '4-4-3',
-      component: EducationHandicapped1
+      path: '6',
+      component: AntDesign
     },{
-      path: '4-4-4',
-      component: EducationHandicapped2
+      path: '7',
+      component: Echart
     },{
-      path: '4-4-5',
+      path: '8',
       component: EducationHandicapped
     }, {
       path: '*',
       component: NotFoundComponent
     }
   ]
+},{
+  path: '/Home0',
+  component: Home0,
 },{
   path: '/DesignCode',
   component: DesignCode,

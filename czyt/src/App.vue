@@ -10,11 +10,11 @@
 
     <el-col class="navbar" >
       <el-menu theme="light" default-active="1" mode="horizontal" :router="true">
-        <el-menu-item index="1" :route="{path:'/home0'}">个性化服务系统</el-menu-item>
-        <el-menu-item index="2" :route="{path:'/home'}">基金会系统</el-menu-item>
-        <el-menu-item index="3" :route="{path:'/DesignCode'}">资金管理系统</el-menu-item>
-        <el-menu-item index="4" :route="{path:'/excl1'}">志愿者服务系统</el-menu-item>
-        <el-menu-item index="5" :route="{path:'/personalized'}">基础平台系统</el-menu-item>
+        <el-menu-item index="1" :route="{path:'/home0'}">首页展示</el-menu-item>
+        <el-menu-item index="2" :route="{path:'/DesignCode'}">关于设计</el-menu-item>
+        <el-menu-item index="3" :route="{path:'/Home1'}">前端优化</el-menu-item>
+        <el-menu-item index="4" :route="{path:'/excl1'}">后期修改</el-menu-item>
+        <el-menu-item index="5" :route="{path:'/personalized'}">系统体验</el-menu-item>
       </el-menu>
     </el-col>
     <ul class="admin-right">

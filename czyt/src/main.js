@@ -3,6 +3,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import App from './App.vue'
 
+
 // 默认css样式
 import './assets/css/delay.css'
 
