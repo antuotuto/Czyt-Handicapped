@@ -1,6 +1,6 @@
 <template>
 <!--  -->
-<div class="hcTaHicpinfo content-box">
+<div class="hcTaHicpinfo content-box" v-loading="listLoading">
   <!-- 搜索条件  -->
   <div class="content-excl-box">
     <!-- 面包屑 -->
@@ -39,7 +39,7 @@
           </el-row>
           <el-row :gutter="20" class="content-top">
             <el-col :span="24">
-              <el-button type="primary" icon="search">搜 索</el-button>
+              <el-button type="primary" icon="search"  v-on:click="getUsers">搜 索</el-button>
               <el-button>重 置</el-button>
 
             </el-col>
@@ -64,7 +64,7 @@
         </div>
 
         <!-- 表格 -->
-        <el-table :data="tableData" stripe tooltip-effect="dark" style="width: 100%" @selection-change="" class="content-top">
+        <el-table :data="tableData" stripe tooltip-effect="dark" style="width: 100%" @selection-change="selsChange" class="content-top" highlight-current-row>
           <el-table-column type="selection" width="">
           </el-table-column>
           <el-table-column width="90" label="序号" align="center" @click.native="test(row)">
@@ -87,7 +87,7 @@
            <el-button
              size="small"
              type="primary"
-             @click="handleDelete(scope.$index, scope.row)">编辑</el-button>
+            @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
          </template>
           </el-table-column>
         </el-table>
@@ -95,14 +95,7 @@
         <!-- 分页 -->
         <el-row :gutter="20" class="content-top">
           <el-col :span="6">
-            <el-popover ref="popover5" placement="top" width="160" v-model="visible2">
-              <p>这是一段内容这是一段内容确定删除吗？</p>
-              <div style="text-align: right; margin: 0">
-                <el-button size="mini" type="text" @click="visible2 = false">取消</el-button>
-                <el-button type="primary" size="mini" @click="delect">确定</el-button>
-              </div>
-            </el-popover>
-            <el-button type="danger" icon="delete" v-popover:popover5>删除</el-button>
+            <el-button type="danger" icon="delete" @click="batchRemove" :disabled="this.sels.length===0">删除</el-button>
           </el-col>
           <el-col :span="18" class="content-paging">
             <el-pagination class="pagination" :small="true" @size-change="" @current-change="" :current-page="2" :page-size="10" layout="total, prev, pager, next, jumper" :total="100">
@@ -155,6 +148,34 @@
 
   <!--  -->
 
+  <!--编辑界面-->
+  <el-dialog title="编辑" v-model="editFormVisible" :close-on-click-modal="false">
+    <el-form :model="editForm" label-width="80px" :rules="editFormRules" ref="editForm">
+      <el-form-item label="姓名" prop="name">
+        <el-input v-model="editForm.name" auto-complete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="性别">
+        <el-radio-group v-model="editForm.sex">
+          <el-radio class="radio" :label="1">男</el-radio>
+          <el-radio class="radio" :label="0">女</el-radio>
+        </el-radio-group>
+      </el-form-item>
+      <el-form-item label="年龄">
+        <el-input-number v-model="editForm.age" :min="0" :max="200"></el-input-number>
+      </el-form-item>
+      <el-form-item label="生日">
+        <el-date-picker type="date" placeholder="选择日期" v-model="editForm.birth"></el-date-picker>
+      </el-form-item>
+      <el-form-item label="地址">
+        <el-input type="textarea" v-model="editForm.apple"></el-input>
+      </el-form-item>
+    </el-form>
+    <div slot="footer" class="dialog-footer">
+      <el-button @click.native="editFormVisible = false">取消</el-button>
+      <el-button type="primary" @click.native="editSubmit" :loading="editLoading">提交</el-button>
+    </div>
+  </el-dialog>
+
 
 
 
@@ -174,8 +195,33 @@ const defaultFormThead = ['apple', 'banana']; // 默认选中项
 export default {
   data() {
     return {
+      sels: [], //列表选中列
+      listLoading: false,
+      //
+      //
+      editFormVisible: false, //编辑界面是否显示
+      editLoading: false,
+      editFormRules: {
+        name: [{
+          required: true,
+          message: '请输入姓名',
+          trigger: 'blur'
+        }]
+      },
+      addFormVisible: false, //新增界面是否显示
+      //编辑界面数据
+      editForm: {
+        id: 0,
+        name: '',
+        sex: -1,
+        age: 0,
+        birth: '',
+        addr: ''
+      },
+      editLoading: false,
+      //
       key: 1, // table key
-      formTheadOptions: ['apple', 'banana', 'orange','an'], // 可选择表头
+      formTheadOptions: ['apple', 'banana', 'orange', 'an'], // 可选择表头
       checkboxVal: defaultFormThead, // checkboxVal
       formThead: defaultFormThead, // 默认表头
       tableData: [{
@@ -183,14 +229,14 @@ export default {
           apple: 'apple-10',
           banana: 'banana-10',
           orange: 'orange-10',
-          an:'1'
+          an: '1'
         },
         {
           name: 'fruit-2',
           apple: 'apple-20',
           banana: 'banana-20',
           orange: 'orange-20',
-          an:'1'
+          an: '1'
 
         },
         {
@@ -198,7 +244,7 @@ export default {
           apple: 'apple-20',
           banana: 'banana-20',
           orange: 'orange-20',
-          an:'1'
+          an: '1'
 
         },
         {
@@ -206,7 +252,7 @@ export default {
           apple: 'apple-20',
           banana: 'banana-20',
           orange: 'orange-20',
-          an:'1'
+          an: '1'
 
         },
         {
@@ -214,7 +260,7 @@ export default {
           apple: 'apple-20',
           banana: 'banana-20',
           orange: 'orange-20',
-          an:'1'
+          an: '1'
 
         },
         {
@@ -222,7 +268,7 @@ export default {
           apple: 'apple-20',
           banana: 'banana-20',
           orange: 'orange-20',
-          an:'1'
+          an: '1'
 
         },
         {
@@ -230,7 +276,7 @@ export default {
           apple: 'apple-20',
           banana: 'banana-20',
           orange: 'orange-20',
-          an:'1'
+          an: '1'
 
         },
         {
@@ -238,7 +284,7 @@ export default {
           apple: 'apple-20',
           banana: 'banana-20',
           orange: 'orange-20',
-          an:'1'
+          an: '1'
 
         },
         {
@@ -246,7 +292,7 @@ export default {
           apple: 'apple-20',
           banana: 'banana-20',
           orange: 'orange-20',
-          an:'1'
+          an: '1'
 
         },
         {
@@ -254,7 +300,7 @@ export default {
           apple: 'apple-20',
           banana: 'banana-20',
           orange: 'orange-20',
-          an:'1'
+          an: '1'
 
         },
         {
@@ -262,7 +308,7 @@ export default {
           apple: 'apple-20',
           banana: 'banana-20',
           orange: 'orange-20',
-          an:'1'
+          an: '1'
 
         }
       ],
@@ -535,6 +581,31 @@ export default {
     handleClick(tab, event) {
       console.log(tab, event);
     },
+    selsChange: function(sels) {
+      this.sels = sels;
+    },
+    batchRemove: function() {
+      var ids = this.sels.map(item => item.id).toString();
+      this.$confirm('确认删除选中记录吗？', '提示', {
+        type: 'warning'
+      }).then(() => {
+        this.listLoading = true;
+        //NProgress.start();
+        let para = {
+          ids: ids
+        };
+        batchRemoveUser(para).then((res) => {
+          this.listLoading = false;
+          //NProgress.done();
+          this.$message({
+            message: '删除成功',
+            type: 'success'
+          });
+        });
+      }).catch(() => {
+
+      });
+    },
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
@@ -545,13 +616,54 @@ export default {
         }
       });
     },
+    //显示编辑界面
+    handleEdit: function(index, row) {
+      this.editFormVisible = true;
+      this.editForm = Object.assign({}, row);
+    },
+    //编辑
+    editSubmit: function() {
+      this.$refs.editForm.validate((valid) => {
+        if (valid) {
+          this.$confirm('确认提交吗？', '提示', {}).then(() => {
+            this.editLoading = true;
+            //NProgress.start();
+            let para = Object.assign({}, this.editForm);
+            this.editLoading = false;
+            //NProgress.done();
+            this.$message({
+              message: '提交成功',
+              type: 'success'
+            });
+            this.$refs['editForm'].resetFields();
+            this.editFormVisible = false;
+            console.log('编辑成功');
+          });
+        }
+      });
+    },
     delect() {
       this.visible2 = false;
       this.$message({
         message: '恭喜你，这是一条成功消息',
         type: 'success'
       });
-    }
+    },
+    //获取用户列表
+    getUsers() {
+      let para = {
+        page: this.page,
+        name: this.input
+      };
+      this.listLoading = true;
+      //NProgress.start();
+      getUserListPage(para).then((res) => {
+        this.total = res.data.total;
+        this.users = res.data.users;
+        this.listLoading = false;
+        //NProgress.done();
+      });
+    },
   },
   watch: {
     checkboxVal(valArr) {
