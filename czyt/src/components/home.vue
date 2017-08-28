@@ -5,7 +5,9 @@
   </div>
   <div class="home-right">
     <div class="right-content">
-      <router-view></router-view>
+      <transition name="fade" mode="out-in">
+  			<router-view></router-view>
+  		</transition>
     </div>
   </div>
 </div>
@@ -51,6 +53,16 @@ export default {
       padding-right: 15px;
       height:100%;
     }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+	transition: all .2s ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+	opacity: 0;
 }
 
 ::-webkit-scrollbar-track-piece {

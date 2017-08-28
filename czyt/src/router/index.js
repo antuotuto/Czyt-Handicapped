@@ -142,11 +142,22 @@ const Echart = (resolve) => {
   })
 }
 
+const Login = (resolve) => {
+  import ('~/components/login.vue').then((module) => {
+    resolve(module)
+  })
+}
+
 
 Vue.use(Router)
 
 const routes = [{
     path: '/',
+    component: Login,
+    name: '登录',
+    hidden: true
+  }, {
+    path: '/home',
     name: '导航一',
     iconCls: 'el-icon-message',
     component: Home,
@@ -174,7 +185,7 @@ const routes = [{
     ]
   },
   {
-    path: '/home',
+    path: '/home1',
     name: '导航二',
     iconCls: 'el-icon-message',
     component: AntDesign,
@@ -191,15 +202,17 @@ const routes = [{
     ]
   },
   {
-        path: '/',
-        component: Home,
-        name: '',
-        iconCls: 'el-icon-message',
-        leaf: true,
-        children: [
-            { path: '/page6', component: Sass, name: '导航三' }
-        ]
-    },
+    path: '/home2',
+    component: Home,
+    name: '',
+    iconCls: 'el-icon-message',
+    leaf: true,
+    children: [{
+      path: '/page6',
+      component: Sass,
+      name: '导航三'
+    }]
+  },
   {
     path: '/404',
     component: NotFoundComponent,

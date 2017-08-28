@@ -23,7 +23,9 @@
     </ul>
   </header>
   <main>
-    <router-view></router-view>
+    <transition name="fade" mode="out-in">
+			<router-view></router-view>
+		</transition>
   </main>
 
   <el-dialog title="新增功能" :visible.sync="dialogVisible" size="tiny" :before-close="handleClose">
@@ -225,5 +227,15 @@ main {
 ::-webkit-scrollbar-thumb {
     background: #a4a4a4;
     border-radius: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+	transition: all .2s ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+	opacity: 0;
 }
 </style>
