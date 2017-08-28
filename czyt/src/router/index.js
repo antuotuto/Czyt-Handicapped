@@ -146,114 +146,74 @@ const Echart = (resolve) => {
 Vue.use(Router)
 
 const routes = [{
-  path: '/',
-  redirect: '/Home0'
-}, {
-  path: '/home',
-  component: Home,
-  children: [{
-      path: '',
-      redirect: '1'
+    path: '/',
+    name: '导航一',
+    iconCls: 'el-icon-message',
+    component: Home,
+    children: [{
+        path: '/main',
+        component: Echart,
+        name: '主页',
+        hidden: true
+      },
+      {
+        path: '/table',
+        component: AntDesign,
+        name: 'Table'
+      },
+      {
+        path: '/form',
+        component: Element,
+        name: 'Form'
+      },
+      {
+        path: '/user',
+        component: Vuex,
+        name: '列表'
+      },
+    ]
+  },
+  {
+    path: '/home',
+    name: '导航二',
+    iconCls: 'el-icon-message',
+    component: AntDesign,
+    children: [{
+        path: '/main1',
+        component: Lobby,
+        name: '主页1',
+      },
+      {
+        path: '/table1',
+        component: Lobby0,
+        name: 'Table1'
+      },
+    ]
+  },
+  {
+        path: '/',
+        component: Home,
+        name: '',
+        iconCls: 'el-icon-message',
+        leaf: true,
+        children: [
+            { path: '/page6', component: Sass, name: '导航三' }
+        ]
     },
-    {
-      path: '1',
-      component: Admin
-    }, {
-      path: '2',
-      component: Admin
-    }, {
-      path: '3',
-      component: Admin
-    }, {
-      path: '4',
-      component: Admin
-    }, {
-      path: '*',
-      component: NotFoundComponent
+  {
+    path: '/404',
+    component: NotFoundComponent,
+    name: '',
+    hidden: true
+  },
+  {
+    path: '*',
+    hidden: true,
+    redirect: {
+      path: '/404'
     }
-  ]
-},{
-  path: '/Personalized',
-  component: Home,
-  children: [{
-      path: '',
-      redirect: '1'
-    },
-    {
-      path: '1',
-      component: HcTaHicpinfo
-    }, {
-      path: '2',
-      component: PersonalizedAdmin
-    }, {
-      path: '3',
-      component: Echarts
-    }, {
-      path: '4-4-1',
-      component: EducationHandicapped
-    },{
-      path: '4-4-2',
-      component: EducationHandicapped0
-    },{
-      path: '4-4-3',
-      component: EducationHandicapped1
-    },{
-      path: '4-4-4',
-      component: EducationHandicapped2
-    },{
-      path: '4-4-5',
-      component: EducationHandicapped
-    }, {
-      path: '*',
-      component: NotFoundComponent
-    }
-  ]
-},{
-  path: '/Home1',
-  component: Home1,
-  children: [{
-      path: '',
-      redirect: '1'
-    },
-    {
-      path: '1',
-      component: VueJs
-    }, {
-      path: '2',
-      component: Sass
-    }, {
-      path: '3',
-      component: VueRouter
-    }, {
-      path: '4',
-      component: Vuex
-    },{
-      path: '5',
-      component: Element
-    },{
-      path: '6',
-      component: AntDesign
-    },{
-      path: '7',
-      component: Echart
-    },{
-      path: '8',
-      component: EducationHandicapped
-    }, {
-      path: '*',
-      component: NotFoundComponent
-    }
-  ]
-},{
-  path: '/Home0',
-  component: Home0,
-},{
-  path: '/DesignCode',
-  component: DesignCode,
-}, {
-  path: '*',
-  component: NotFoundComponent
-}]
+  }
+]
 
 export default new Router({
   mode: 'hash',

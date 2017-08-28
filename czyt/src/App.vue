@@ -50,7 +50,7 @@ import {
 export default {
   data() {
     return {
-      dialogVisible: true,
+      dialogVisible: false,
       currentView: 'view-down',
       options: [{
         value: '选项1',

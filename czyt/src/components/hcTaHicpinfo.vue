@@ -590,18 +590,17 @@ export default {
         type: 'warning'
       }).then(() => {
         this.listLoading = true;
+        this.visible2 = false;
         //NProgress.start();
         let para = {
           ids: ids
         };
-        batchRemoveUser(para).then((res) => {
           this.listLoading = false;
           //NProgress.done();
           this.$message({
             message: '删除成功',
             type: 'success'
           });
-        });
       }).catch(() => {
 
       });
@@ -642,6 +641,7 @@ export default {
         }
       });
     },
+    // 删除
     delect() {
       this.visible2 = false;
       this.$message({
