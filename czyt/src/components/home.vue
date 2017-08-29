@@ -55,6 +55,7 @@ export default {
     }
 }
 
+
 .fade-enter-active,
 .fade-leave-active {
 	transition: all .2s ease;
@@ -63,6 +64,7 @@ export default {
 .fade-enter,
 .fade-leave-active {
 	opacity: 0;
+  transform: translateX(-3rem)
 }
 
 ::-webkit-scrollbar-track-piece {

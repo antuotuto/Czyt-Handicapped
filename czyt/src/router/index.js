@@ -10,6 +10,12 @@ const Home = (resolve) => {
   })
 }
 
+const Crumbs = (resolve) => {
+  import ('~/components/crumbs.vue').then((module) => {
+    resolve(module)
+  })
+}
+
 const Home0 = (resolve) => {
   import ('~/components/home0.vue').then((module) => {
     resolve(module)
@@ -169,7 +175,7 @@ const routes = [{
       },
       {
         path: '/table',
-        component: AntDesign,
+        component: Crumbs,
         name: 'Table'
       },
       {

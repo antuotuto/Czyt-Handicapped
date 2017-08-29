@@ -17,15 +17,20 @@
         <el-menu-item index="5" :route="{path:'/personalized'}">系统体验</el-menu-item>
       </el-menu>
     </el-col>
+
+
     <ul class="admin-right">
+      <li>
+        <screenfull class='screenfull'></screenfull>
+      </li>
       <li>王安安</li>
       <li><i class="el-icon-close"></i></li>
     </ul>
   </header>
   <main>
     <transition name="fade" mode="out-in">
-			<router-view></router-view>
-		</transition>
+      <router-view></router-view>
+    </transition>
   </main>
 
   <el-dialog title="新增功能" :visible.sync="dialogVisible" size="tiny" :before-close="handleClose">
@@ -41,6 +46,9 @@
 
 
 <script>
+import screenfull from '~/components/screenfull.vue';
+
+
 import {
   mapMutations
 } from 'vuex'
@@ -99,16 +107,18 @@ export default {
       'logo'
     ])
   },
-  components: {}
+  components: {
+    screenfull,
+  }
 }
 </script>
 
 <style lang="scss">
-.new{
-  line-height: 20px;
-  span{
-    color:red;
-  }
+.new {
+    line-height: 20px;
+    span {
+        color: red;
+    }
 }
 #app {
     font-family: Helvetica, sans-serif;
@@ -182,6 +192,9 @@ header {
     }
 }
 
+.screenfull {
+    }
+
 .selectionSystem {
     padding: 5px;
     input {
@@ -231,11 +244,11 @@ main {
 
 .fade-enter-active,
 .fade-leave-active {
-	transition: all .2s ease;
+    transition: all 0.2s ease;
 }
 
 .fade-enter,
 .fade-leave-active {
-	opacity: 0;
+    opacity: 0;
 }
 </style>
