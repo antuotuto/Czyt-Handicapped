@@ -83,7 +83,6 @@ const Admin = (resolve) => {
   })
 }
 
-
 // 首页
 
 const Lobby = (resolve) => {
@@ -164,7 +163,7 @@ const routes = [{
     hidden: true
   }, {
     path: '/home',
-    name: '导航一',
+    name: '表格组件',
     iconCls: 'el-icon-message',
     component: Home,
     children: [{
@@ -175,49 +174,67 @@ const routes = [{
       },
       {
         path: '/table',
-        component: EducationHandicapped0,
-        name: 'Table'
+        component: HcTaHicpinfo,
+        name: '功能表格'
       },
       {
-        path: '/form',
-        component: EducationHandicapped1,
-        name: 'Form'
+        path: '/personalizedAdmin',
+        component: PersonalizedAdmin,
+        name: '查找表格'
       },
       {
-        path: '/user',
-        component: EducationHandicapped2,
-        name: '列表'
-      },
+        path: '/admin',
+        component: Admin,
+        name: '表格设计'
+      }
     ]
   },
   {
-    path: '/home1',
-    name: '导航二',
+    path: '/home',
+    name: '空余表格',
     iconCls: 'el-icon-message',
-    component: AntDesign,
+    component: Home,
     children: [{
-        path: '/main1',
-        component: Lobby,
-        name: '主页1',
+        path: '/lobby',
+        component: Admin,
+        name: '空余表格1',
       },
       {
         path: '/table1',
         component: Lobby0,
-        name: 'Table1'
+        name: '空余表格2'
       },
     ]
   },
   {
-    path: '/home2',
+    path: '/home',
+    name: 'Echarts',
+    iconCls: 'el-icon-message',
     component: Home,
+    children: [{
+        path: '/educationHandicapped0',
+        component: EducationHandicapped0,
+        name: '线性表格',
+      },
+      {
+        path: '/educationHandicapped1',
+        component: EducationHandicapped1,
+        name: '圆形表格'
+      },
+      {
+        path: '/educationHandicapped2',
+        component: EducationHandicapped2,
+        name: '玫瑰图'
+      },
+    ]
+  },
+  {
+    path: '/designCode',
+    component: DesignCode,
     name: '',
     iconCls: 'el-icon-message',
+    hidden: true,
     leaf: true,
-    children: [{
-      path: '/page6',
-      component: Sass,
-      name: '导航三'
-    }]
   },
   {
     path: '/404',

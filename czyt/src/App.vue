@@ -10,8 +10,8 @@
 
     <el-col class="navbar">
       <el-menu theme="light" default-active="1" mode="horizontal" :router="true">
-        <el-menu-item index="1" :route="{path:'/home0'}">首页展示</el-menu-item>
-        <el-menu-item index="2" :route="{path:'/DesignCode'}">关于设计</el-menu-item>
+        <el-menu-item index="1" :route="{path:'/home'}">首页展示</el-menu-item>
+        <el-menu-item index="2" :route="{path:'/designCode'}">关于设计</el-menu-item>
         <el-menu-item index="3" :route="{path:'/Home1'}">前端优化</el-menu-item>
         <el-menu-item index="4" :route="{path:'/excl1'}">后期修改</el-menu-item>
         <el-menu-item index="5" :route="{path:'/personalized'}">系统体验</el-menu-item>
