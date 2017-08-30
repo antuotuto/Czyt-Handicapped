@@ -57,7 +57,7 @@
   </div>
 
   <div class="optimize">
-    <el-table :data="tableData2" style="width: 100%" :row-class-name="tableRowClassName" border >
+    <el-table :data="tableData2" style="width: 100%" :row-class-name="tableRowClassName" border>
       <el-table-column label="前端优化内容" align="center">
         <el-table-column prop="date" label="日期" width="180">
         </el-table-column>
@@ -150,14 +150,14 @@ export default {
     }
     .text-box-1 {
         padding-left: 200px;
-        h4{
-          padding-top: 50px;
-          font-size: 30px;
+        h4 {
+            padding-top: 50px;
+            font-size: 30px;
         }
-        p{
-          padding-top: 10px;
-          font-size: 15px;
-          opacity:.8;
+        p {
+            padding-top: 10px;
+            font-size: 15px;
+            opacity: 0.8;
         }
     }
 }
@@ -171,8 +171,7 @@ export default {
         height: 300px;
         background-color: #2b83f9;
     }
-    .text-box-1 {
-    }
+    .text-box-1 {}
 }
 
 .strongPoint {
@@ -194,14 +193,14 @@ export default {
     margin: 0 auto;
 }
 
-.end{
-  background-color: #2b83f9;
-  p{
-    text-align: center;
-    line-height: 50px;
-    font-size: 12px;
-    color:#fff;
-    font-weight: 300;
-  }
+.end {
+    background-color: #2b83f9;
+    p {
+        text-align: center;
+        line-height: 50px;
+        font-size: 12px;
+        color: #fff;
+        font-weight: 300;
+    }
 }
 </style>

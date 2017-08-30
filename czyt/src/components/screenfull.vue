@@ -21,7 +21,7 @@
       },
       fill: {
         type: String,
-        default: '#48576a'
+        default: '#fff'
       }
     },
     data() {

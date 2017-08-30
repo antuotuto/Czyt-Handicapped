@@ -18,7 +18,6 @@
       </el-menu>
     </el-col>
 
-
     <ul class="admin-right">
       <li>
         <screenfull class='screenfull'></screenfull>
@@ -39,7 +38,6 @@
     <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
   </span>
   </el-dialog>
-
 
 </div>
 </template>
@@ -192,8 +190,7 @@ header {
     }
 }
 
-.screenfull {
-    }
+.screenfull {}
 
 .selectionSystem {
     padding: 5px;
@@ -244,7 +241,7 @@ main {
 
 .fade-enter-active,
 .fade-leave-active {
-    transition: all 0.2s ease;
+    transition: all 0.4s ease;
 }
 
 .fade-enter,

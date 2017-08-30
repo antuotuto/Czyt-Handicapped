@@ -175,17 +175,17 @@ const routes = [{
       },
       {
         path: '/table',
-        component: Crumbs,
+        component: EducationHandicapped0,
         name: 'Table'
       },
       {
         path: '/form',
-        component: Element,
+        component: EducationHandicapped1,
         name: 'Form'
       },
       {
         path: '/user',
-        component: Vuex,
+        component: EducationHandicapped2,
         name: '列表'
       },
     ]
