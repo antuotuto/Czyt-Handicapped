@@ -6,6 +6,11 @@
 
   <p @click="antuotuo">anan</p>
 
+  <ul >
+    <li v-for="item in an">
+      {{ item.list }}
+    </li>
+  </ul>
 
 
 </div>
@@ -15,10 +20,6 @@
 <script>
 import plan from './plan.vue'
 
-import {
-  items
-} from '~/data'
-
 export default {
   data() {
     return {
@@ -27,6 +28,7 @@ export default {
   },
   methods: {
     antuotuo() {
+      self = this
       this.$http({
         method: 'post',
         url: 'http://192.168.16.75:8800/manager/selectCurrencies',
@@ -36,8 +38,8 @@ export default {
         }
       }).then(function(response) {
         console.log(response.data);
-        this.an = response.data
-        console.log(this.an);
+        self.an = response.data
+        console.log(self.an);
       });
     },
   },
