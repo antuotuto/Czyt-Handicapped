@@ -10,6 +10,12 @@ const Home = (resolve) => {
   })
 }
 
+const An = (resolve) => {
+  import ('~/components/an.vue').then((module) => {
+    resolve(module)
+  })
+}
+
 const Crumbs = (resolve) => {
   import ('~/components/crumbs.vue').then((module) => {
     resolve(module)
@@ -166,15 +172,14 @@ const routes = [{
     iconCls: 'el-icon-message',
     component: Home,
     children: [{
+        path: '/table',
+        component: HcTaHicpinfo,
+        name: '功能表格'
+      }, {
         path: '/main',
         component: Echart,
         name: '主页',
         hidden: true
-      },
-      {
-        path: '/table',
-        component: HcTaHicpinfo,
-        name: '功能表格'
       },
       {
         path: '/personalizedAdmin',
@@ -194,9 +199,9 @@ const routes = [{
     iconCls: 'el-icon-message',
     component: Home,
     children: [{
-        path: '/lobby',
-        component: Admin,
-        name: '空余表格1',
+        path: '/an',
+        component: An,
+        name: '灵活的组件',
       },
       {
         path: '/table1',
