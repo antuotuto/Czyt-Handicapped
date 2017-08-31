@@ -153,7 +153,6 @@ const Login = (resolve) => {
   })
 }
 
-
 Vue.use(Router)
 
 const routes = [{
