@@ -3,6 +3,25 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import App from './App.vue'
 
+//
+import VueProgressBar from 'vue-progressbar'
+
+const options = {
+  color: '#2945cb',
+  failedColor: '#3a9dff',
+  thickness: '3px',
+  transition: {
+    speed: '0.2s',
+    opacity: '0.7s',
+    termination: 800
+  },
+  autoRevert: true,
+  location: 'top',
+  inverse: true
+}
+
+Vue.use(VueProgressBar, options)
+
 import axios from 'axios'
 Vue.prototype.$http = axios
 
@@ -34,4 +53,4 @@ new Vue({
   router,
   store,
   render: h => h(App)
-})
+}).$mount('#app')

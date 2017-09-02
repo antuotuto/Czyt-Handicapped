@@ -7,9 +7,7 @@
     <span class="date">{{ date }}</span>
   </div>
 
-
-  <VmEditor ></VmEditor>
-
+  <VmEditor></VmEditor>
 
 </div>
 <!--  -->
