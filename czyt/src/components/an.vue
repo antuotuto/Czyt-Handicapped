@@ -2,7 +2,6 @@
 <!--  -->
 <div class="an">
 
-
   <el-table :data="an" stripe tooltip-effect="dark" style="width: 100%" @selection-change="selsChange" v-loading="listLoading">
     <el-table-column type="selection" width="55">
     </el-table-column>
