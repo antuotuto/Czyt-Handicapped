@@ -74,7 +74,7 @@
         <!--  -->
       </el-tab-pane>
     </el-tabs>
-<!-- 编辑 -->
+    <!-- 编辑 -->
     <div class="edit" :class="[this.edit ? true : 'active', '']">
       <el-row :gutter="20">
         <el-col :span="13" :offset="1">
@@ -105,7 +105,7 @@
         </el-col>
       </el-row>
     </div>
-<!--  -->
+    <!--  -->
 
 
   </div>
@@ -143,8 +143,8 @@ export default {
       activeName: 'first',
       input: '',
       table,
-      crumbs:["首页","个性化服务系统","残疾人基础信息","个性化录入","/home"],
-      edit:false
+      crumbs: ["首页", "个性化服务系统", "残疾人基础信息", "个性化录入", "/home"],
+      edit: false
     }
   },
   watch: {},
@@ -177,43 +177,41 @@ export default {
 
 <style scoped lang="scss">
 .admin {
-  padding-right: 15px;
-  overflow-y: scroll;
-  height: 100%;
+    padding-right: 15px;
+    overflow-y: scroll;
+    height: 100%;
 }
 
 .el-row {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .button-on {
-  padding-left: 5px;
+    padding-left: 5px;
 }
 
 .content-business {
-  background: #fff;
-  border-top: 3px solid #20A0FF;
+    background: #fff;
+    border-top: 3px solid #20A0FF;
 }
 
 .content-header {
-  background: #20A0FF;
-  color: #fff;
-  padding: 15px;
+    background: #20A0FF;
+    color: #fff;
+    padding: 15px;
 }
 
 .el-tabs__item {
-  padding: 0 300px !important;
+    padding: 0 300px !important;
 }
 
-.edit{
-  &.active{
-    display: none;
-  }
+.edit {
+    &.active {
+        display: none;
+    }
 }
-
-
 
 .content-find {
-  margin: 0 15px;
+    margin: 0 15px;
 }
 </style>
