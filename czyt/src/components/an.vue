@@ -93,6 +93,7 @@ export default {
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
     },
+    // 加载数据
     getUsers() {
       let self = this;
       let para = {
@@ -118,7 +119,7 @@ export default {
     },
     //批量删除
     batchRemove: function() {
-      var id = this.sels.map(item => item.uuid).toString();
+      var ids = this.sels.map(item => item.uuid).toString();
       console.log(ids);
       this.$confirm('确认删除选中记录吗？', '提示', {
         type: 'warning'
@@ -129,7 +130,7 @@ export default {
           method: 'post',
           url: 'http://192.168.16.75:8800/manager/deleteCurrency',
           data: {
-            ids: id
+            ids: "e4f6435bb4c34510948dcc48d66bdf53"
           }
         }).then(function(response) {
           console.log(1);
