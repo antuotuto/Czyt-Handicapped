@@ -203,6 +203,7 @@ header {
         width: 60px;
         font-size: 16px;
         color: #fff;
+        border-radius: 0;
         position: absolute;
         left: 200px;
         top: 0;

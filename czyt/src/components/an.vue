@@ -1,7 +1,7 @@
 <template>
 <!--  -->
 <div class="an">
-
+  <!-- 表格 -->
   <el-table :data="list" stripe tooltip-effect="dark" style="width: 100%" @selection-change="selsChange" v-loading="listLoading">
     <el-table-column type="selection" width="55">
     </el-table-column>
@@ -31,13 +31,15 @@
    </template>
     </el-table-column>
   </el-table>
+  <!--  -->
 
   <!--工具条-->
   <el-col :span="24" class="toolbar">
     <el-button type="danger" @click="batchRemove" :disabled="this.sels.length===0">批量删除</el-button>
-    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="currentPage3" :page-size="10" layout="prev, pager, next, jumper" :total="total" style="float:right;">
+    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="currentPage3" :page-size="10" layout="total, prev, pager, next, jumper" :total="total" style="float:right;">
     </el-pagination>
   </el-col>
+  <!--  -->
 
   <!--编辑界面-->
   <el-dialog title="编辑" v-model="editFormVisible" :close-on-click-modal="false">
@@ -57,6 +59,7 @@
       <el-button type="primary" @click.native="editSubmit" :loading="editLoading">提交</el-button>
     </div>
   </el-dialog>
+  <!--  -->
 
 </div>
 <!--  -->
@@ -145,13 +148,16 @@ export default {
 
       });
     },
+    // 多选
     selsChange: function(sels) {
       this.sels = sels;
     },
+    // 切页
     handleCurrentChange(val) {
       this.page = val;
       this.getUsers();
     },
+    // 新增页面
     handleEdit: function(index, row) {
       this.editFormVisible = true;
       this.editForm = Object.assign({}, row);
