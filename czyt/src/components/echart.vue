@@ -1,7 +1,7 @@
 <template>
 <!--  -->
 <div class="personalizedAdmin">
-    <h1>echarts是</h1>
+    <h1>echarts</h1>
 </div>
 <!--  -->
 </template>
