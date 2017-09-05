@@ -2,7 +2,7 @@
 <!--  -->
 <div class="an">
 
-  <el-table :data="an" stripe tooltip-effect="dark" style="width: 100%" @selection-change="selsChange" v-loading="listLoading">
+  <el-table :data="list" stripe tooltip-effect="dark" style="width: 100%" @selection-change="selsChange" v-loading="listLoading">
     <el-table-column type="selection" width="55">
     </el-table-column>
     <el-table-column width="90" label="序号" align="left" @click.native="test(row)">
@@ -33,15 +33,15 @@
   </el-table>
 
   <!--工具条-->
-  <!-- <el-col :span="24" class="toolbar">
+  <el-col :span="24" class="toolbar">
     <el-button type="danger" @click="batchRemove" :disabled="this.sels.length===0">批量删除</el-button>
-    <el-pagination layout="prev, pager, next" @current-change="handleCurrentChange" :page-size="20" :total="total" style="float:right;">
+    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="currentPage3" :page-size="10" layout="prev, pager, next, jumper" :total="total" style="float:right;">
     </el-pagination>
-  </el-col> -->
+  </el-col>
 
   <!--编辑界面-->
   <el-dialog title="编辑" v-model="editFormVisible" :close-on-click-modal="false">
-    <el-form :model="editForm" label-width="80px"  ref="editForm">
+    <el-form :model="editForm" label-width="80px" ref="editForm">
       <el-form-item label="姓名" prop="id">
         <el-input v-model="editForm.id" auto-complete="off"></el-input>
       </el-form-item>
@@ -58,8 +58,6 @@
     </div>
   </el-dialog>
 
-
-
 </div>
 <!--  -->
 </template>
@@ -69,13 +67,15 @@ import plan from './plan.vue'
 export default {
   data() {
     return {
-      an: null,
+      list: null,
+      pages: null,
       filters: {
         name: ''
       },
       users: [],
       total: 0,
       page: 1,
+      currentPage3: 5,
       listLoading: false,
       sels: [],
       // 查看框
@@ -90,23 +90,59 @@ export default {
     }
   },
   methods: {
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`);
+    },
     getUsers() {
       let self = this;
-      // this.$Progress.start()
+      let para = {
+        page: this.page,
+        name: this.filters.name
+      };
       this.listLoading = true
       this.$http({
         method: 'post',
         url: 'http://192.168.16.75:8800/manager/selectCurrencies',
         data: {
-          pageNo: '1',
+          pageNo: self.page,
           pageSize: '10'
         }
       }).then(function(response) {
-        self.an = response.data.data.list
-        // this.$Progress.finish()
+        console.log(response.data);
+        self.list = response.data.data.list
+        self.pages = response.data.data.pagination
         self.listLoading = false
+        self.total = self.pages.totalCount
+        self.users = self.pages.totalPage
       });
-      // this.$Progress.fail()
+    },
+    //批量删除
+    batchRemove: function() {
+      var id = this.sels.map(item => item.uuid).toString();
+      console.log(ids);
+      this.$confirm('确认删除选中记录吗？', '提示', {
+        type: 'warning'
+      }).then(() => {
+        this.listLoading = true;
+        console.log(1);
+        this.$http({
+          method: 'post',
+          url: 'http://192.168.16.75:8800/manager/deleteCurrency',
+          data: {
+            ids: id
+          }
+        }).then(function(response) {
+          console.log(1);
+          this.listLoading = false;
+          this.$message({
+            message: '删除成功',
+            type: 'success'
+          });
+          this.getUsers();
+        });
+      }).catch(() => {
+
+      });
     },
     selsChange: function(sels) {
       this.sels = sels;
@@ -135,5 +171,9 @@ export default {
 <style scoped>
 .an {
   padding: 15px;
+}
+
+.toolbar {
+  padding: 15px 0;
 }
 </style>
