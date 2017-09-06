@@ -163,7 +163,6 @@ export default {
         type: 'warning'
       }).then(() => {
         self.listLoading = true;
-        console.log(1);
         this.$http({
           method: 'post',
           url: 'http://192.168.16.75:8800/manager/deleteCurrency?uuid=' + uuid,
@@ -178,6 +177,32 @@ export default {
         });
       }).catch(() => {
 
+      });
+    },
+    //编辑
+    editSubmit: function() {
+      self = this;
+      this.$refs.editForm.validate((valid) => {
+        if (valid) {
+          this.$confirm('确认提交吗？', '提示', {}).then(() => {
+            console.log(this.valid);
+            this.editLoading = true;
+            this.$http({
+              method: 'post',
+              url: 'http://192.168.16.75:8800/manager/deleteCurrency?uuid=' + this.valid,
+            }).then((res) => {
+              this.editLoading = false;
+              //NProgress.done();
+              this.$message({
+                message: '提交成功',
+                type: 'success'
+              });
+              this.$refs['editForm'].resetFields();
+              this.editFormVisible = false;
+              this.getUsers();
+            });
+          });
+        }
       });
     },
     // 多选
