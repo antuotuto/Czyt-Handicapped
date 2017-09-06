@@ -1,6 +1,22 @@
 <template>
 <!--  -->
 <div class="an">
+
+  <!--工具条-->
+  <el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
+    <el-form :inline="true" :model="filters">
+      <el-form-item>
+        <el-input v-model="filters.name" placeholder="姓名"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" v-on:click="getUsers">查询</el-button>
+      </el-form-item>
+      <!-- <el-form-item>
+        <el-button type="primary" @click="handleAdd">新增</el-button>
+      </el-form-item> -->
+    </el-form>
+  </el-col>
+
   <!-- 表格 -->
   <el-table :data="list" stripe tooltip-effect="dark" style="width: 100%" @selection-change="selsChange" v-loading="listLoading">
     <el-table-column type="selection" width="55">
@@ -78,7 +94,7 @@ export default {
       users: [],
       total: 0,
       page: 1,
-      currentPage3: 5,
+      currentPage3: 1,
       listLoading: false,
       sels: [],
       // 查看框
@@ -112,7 +128,25 @@ export default {
           pageSize: '10'
         }
       }).then(function(response) {
-        console.log(response.data);
+        self.list = response.data.data.list
+        self.pages = response.data.data.pagination
+        self.listLoading = false
+        self.total = self.pages.totalCount
+        self.users = self.pages.totalPage
+      });
+    },
+    // 查找数据
+    findUsers() {
+      let self = this;
+      let name = this.filters.name;
+      this.listLoading = true
+      this.$http({
+        method: 'post',
+        url: 'http://192.168.16.75:8800/manager/selectCurrencyById',
+        data: {
+          names: name
+        }
+      }).then(function(response) {
         self.list = response.data.data.list
         self.pages = response.data.data.pagination
         self.listLoading = false
@@ -122,27 +156,25 @@ export default {
     },
     //批量删除
     batchRemove: function() {
-      var ids = this.sels.map(item => item.uuid).toString();
-      console.log(ids);
+      self = this;
+      var uuid = this.sels.map(item => item.uuid).toString();
+      console.log(uuid);
       this.$confirm('确认删除选中记录吗？', '提示', {
         type: 'warning'
       }).then(() => {
-        this.listLoading = true;
+        self.listLoading = true;
         console.log(1);
         this.$http({
           method: 'post',
-          url: 'http://192.168.16.75:8800/manager/deleteCurrency',
-          data: {
-            ids: "e4f6435bb4c34510948dcc48d66bdf53"
-          }
+          url: 'http://192.168.16.75:8800/manager/deleteCurrency?uuid=' + uuid,
         }).then(function(response) {
-          console.log(1);
-          this.listLoading = false;
-          this.$message({
+          console.log('正确');
+          self.listLoading = false;
+          self.$message({
             message: '删除成功',
             type: 'success'
           });
-          this.getUsers();
+          self.getUsers();
         });
       }).catch(() => {
 
@@ -163,9 +195,7 @@ export default {
       this.editForm = Object.assign({}, row);
     },
   },
-  created() {
-
-  },
+  created() {},
   mounted() {
     this.getUsers();
   },
