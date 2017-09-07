@@ -9,11 +9,11 @@
         <el-input v-model="filters.name" placeholder="姓名"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" v-on:click="getUsers">查询</el-button>
+        <el-button type="primary" v-on:click="findUser">查询</el-button>
       </el-form-item>
-      <!-- <el-form-item>
+      <el-form-item>
         <el-button type="primary" @click="handleAdd">新增</el-button>
-      </el-form-item> -->
+      </el-form-item>
     </el-form>
   </el-col>
 
@@ -26,7 +26,7 @@
     </el-table-column>
     <el-table-column width="" prop="currencyCd" label="位置" align="left">
     </el-table-column>
-    <el-table-column width="" prop="currencyNm" label="申请情况" align="center" @click="handleEdit(scope.$index, scope.row)">
+    <el-table-column width="" prop="currencyNm" label="申请情况" align="center">
     </el-table-column>
     <el-table-column width="" label="姓名" prop="createDt" align="center">
     </el-table-column>
@@ -77,12 +77,33 @@
   </el-dialog>
   <!--  -->
 
+  <!--新增界面-->
+  <el-dialog title="新增" v-model="addFormVisible" :close-on-click-modal="false">
+    <el-form :model="addForm" label-width="80px" :rules="addFormRules" ref="addForm">
+      <el-form-item label="姓名" prop="id">
+        <el-input v-model="addForm.id" auto-complete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="位置" prop="currencyCd">
+        <el-input v-model="addForm.currencyCd" auto-complete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="申请情况" prop="currencyNm">
+        <el-input v-model="addForm.currencyNm" auto-complete="off"></el-input>
+      </el-form-item>
+    </el-form>
+    <div slot="footer" class="dialog-footer">
+      <el-button @click.native="addFormVisible = false">取消</el-button>
+      <el-button type="primary" @click.native="addSubmit" :loading="addLoading">提交</el-button>
+    </div>
+  </el-dialog>
+  <!--  -->
+
 </div>
 <!--  -->
 </template>
 
 <script>
 import plan from './plan.vue'
+
 export default {
   data() {
     return {
@@ -106,6 +127,22 @@ export default {
         currencyNm: -1,
       },
       editLoading: false,
+      //新增界面数据
+      addForm: {
+        id: 0,
+        currencyCd: '',
+        currencyNm: -1,
+      },
+      addFormVisible: false, //新增界面是否显示
+      // 规则
+      addFormRules: {
+        id: [{
+          required: true,
+          message: '不能为空',
+          trigger: 'blur'
+        }]
+      },
+      addLoading: false,
     }
   },
   methods: {
@@ -181,18 +218,30 @@ export default {
     },
     //编辑
     editSubmit: function() {
-      self = this;
+      axios.post(this.registerUrl, this.editForm, {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        })
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
+    editSubmit: function() {
+      let editForm = this.editForm;
       this.$refs.editForm.validate((valid) => {
         if (valid) {
           this.$confirm('确认提交吗？', '提示', {}).then(() => {
-            console.log(this.valid);
             this.editLoading = true;
             this.$http({
               method: 'post',
-              url: 'http://192.168.16.75:8800/manager/deleteCurrency?uuid=' + this.valid,
+              url: 'http://192.168.16.75:8800/manager/updateCurrency',
+              data: editForm
             }).then((res) => {
               this.editLoading = false;
-              //NProgress.done();
               this.$message({
                 message: '提交成功',
                 type: 'success'
@@ -205,6 +254,43 @@ export default {
         }
       });
     },
+    //显示新增界面
+    handleAdd: function() {
+      this.addFormVisible = true;
+      this.addForm = {
+        id: 111,
+        currencyCd: '2112',
+        currencyNm: -1,
+      };
+    },
+    addSubmit() {
+      let addForm = this.addForm;
+      this.$refs.addForm.validate((valid) => {
+        if (valid) {
+          this.$confirm('确认提交吗？', '提示', {}).then(() => {
+            this.editLoading = true;
+            this.$http({
+              method: 'post',
+              url: 'http://192.168.16.75:8800/manager/saveCurrency',
+              data: addForm
+            }).then((res) => {
+              this.addLoading = false;
+              this.$message({
+                message: '提交成功',
+                type: 'success'
+              });
+              this.$refs['addForm'].resetFields();
+              this.addFormVisible = false;
+              this.getUsers();
+            });
+          });
+        }
+      });
+    },
+    // 查找功能
+    findUser() {
+
+    },
     // 多选
     selsChange: function(sels) {
       this.sels = sels;
@@ -216,8 +302,16 @@ export default {
     },
     // 新增页面
     handleEdit: function(index, row) {
+      var uuid = row.uuid
       this.editFormVisible = true;
       this.editForm = Object.assign({}, row);
+      this.$http({
+        method: 'post',
+        url: 'http://192.168.16.75:8800/manager/selectCurrencyById?uuid=' + uuid,
+      }).then((res) => {
+        this.editLoading = false;
+        this.getUsers();
+      });
     },
   },
   created() {},
