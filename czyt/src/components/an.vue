@@ -6,16 +6,17 @@
   <el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
     <el-form :inline="true" :model="filters">
       <el-form-item>
-        <el-input v-model="filters.name" placeholder="姓名"></el-input>
+        <el-input v-model="filters.currencyCd" placeholder="位置"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" v-on:click="findUser">查询</el-button>
+        <el-button type="primary" v-on:click="getUsers">查询</el-button>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="handleAdd">新增</el-button>
       </el-form-item>
     </el-form>
   </el-col>
+  <!--  -->
 
   <!-- 表格 -->
   <el-table :data="list" stripe tooltip-effect="dark" style="width: 100%" @selection-change="selsChange" v-loading="listLoading">
@@ -102,7 +103,6 @@
 </template>
 
 <script>
-import plan from './plan.vue'
 
 export default {
   data() {
@@ -143,6 +143,9 @@ export default {
         }]
       },
       addLoading: false,
+      filters: {
+        currencyCd: ''
+      },
     }
   },
   methods: {
@@ -151,7 +154,7 @@ export default {
     },
     // 加载数据
     getUsers() {
-      let self = this;
+      self = this;
       let para = {
         page: this.page,
         name: this.filters.name
@@ -162,7 +165,8 @@ export default {
         url: 'http://192.168.16.75:8800/manager/selectCurrencies',
         data: {
           pageNo: self.page,
-          pageSize: '10'
+          pageSize: '10',
+          currencyCd: self.filters
         }
       }).then(function(response) {
         self.list = response.data.data.list
@@ -288,9 +292,29 @@ export default {
       });
     },
     // 查找功能
-    findUser() {
-
-    },
+    // findUser() {
+    //   let self = this;
+    //   let para = {
+    //     page: this.page,
+    //     name: this.filters.name
+    //   };
+    //   this.listLoading = true
+    //   this.$http({
+    //     method: 'post',
+    //     url: 'http://192.168.16.75:8800/manager/selectCurrencies',
+    //     data: {
+    //       pageNo: self.page,
+    //       pageSize: '10',
+    //       currencyCd: self.filters
+    //     }
+    //   }).then(function(response) {
+    //     self.list = response.data.data.list
+    //     self.pages = response.data.data.pagination
+    //     self.listLoading = false
+    //     self.total = self.pages.totalCount
+    //     self.users = self.pages.totalPage
+    //   });
+    // },
     // 多选
     selsChange: function(sels) {
       this.sels = sels;
@@ -317,9 +341,6 @@ export default {
   created() {},
   mounted() {
     this.getUsers();
-  },
-  components: {
-    plan
   }
 }
 </script>
