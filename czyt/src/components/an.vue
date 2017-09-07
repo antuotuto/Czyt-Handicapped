@@ -1,6 +1,9 @@
 <template>
 <!--  -->
 <div class="an">
+  <!-- 面包屑 -->
+  <crumbs></crumbs>
+  <!--  -->
 
   <!--工具条-->
   <el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
@@ -18,32 +21,39 @@
   </el-col>
   <!--  -->
 
+  <div class="checkbox-table">
+    <el-checkbox-group v-model="checkboxVal">
+      <el-checkbox label="currencyCd">currencyCd</el-checkbox>
+      <el-checkbox label="createDt">createDt</el-checkbox>
+      <el-checkbox label="sn">sn</el-checkbox>
+      <el-checkbox label="uuid">uuid</el-checkbox>
+    </el-checkbox-group>
+  </div>
+
   <!-- 表格 -->
   <el-table :data="list" stripe tooltip-effect="dark" style="width: 100%" @selection-change="selsChange" v-loading="listLoading">
-    <el-table-column type="selection" width="55">
+    <el-table-column type="selection" width="">
     </el-table-column>
-    <el-table-column width="90" label="序号" align="left" @click.native="test(row)">
+    <el-table-column width="" label="序号" align="left" @click.native="test(row)">
       <template scope="scope">{{ scope.row.id }}</template>
     </el-table-column>
-    <el-table-column width="" prop="currencyCd" label="位置" align="left">
+    <el-table-column width="" prop="currencyCd" label="位置" align="left" sortable>
     </el-table-column>
-    <el-table-column width="" prop="currencyNm" label="申请情况" align="center">
-    </el-table-column>
-    <el-table-column width="" label="姓名" prop="createDt" align="center">
-    </el-table-column>
-    <el-table-column width="" label="年龄" prop="sn" align="center">
-    </el-table-column>
-    <el-table-column width="" label="喜欢" prop="uuid" align="center">
+    <el-table-column :key='currencyNm' v-for='(currencyNm,index) in formThead' :label="currencyNm" align="center" sortable>
+      <template scope="scope">
+        {{scope.row[currencyNm]}}
+      </template>
     </el-table-column>
     </el-table-column>
     <el-table-column label="操作" width="180" align="center">
       <template scope="scope">
      <el-button
        size="small"
+       type="primary"
        @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
      <el-button
        size="small"
-       type="primary"
+       type="danger"
        @click="handleDelete(scope.$index, scope.row)">删除</el-button>
    </template>
     </el-table-column>
@@ -53,7 +63,7 @@
   <!--工具条-->
   <el-col :span="24" class="toolbar">
     <el-button type="danger" @click="batchRemove" :disabled="this.sels.length===0">批量删除</el-button>
-    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="currentPage3" :page-size="10" :page-sizes="[10, 20, 30, 40]" layout="total, prev, pager, next, jumper" :total="total" style="float:right;">
+    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="currentPage3" :page-sizes="[10, 20, 30, 40]" :page-size="pageSize" layout="total, sizes, prev, pager, next, jumper" :total="total" style="float:right;">
     </el-pagination>
   </el-col>
   <!--  -->
@@ -103,17 +113,26 @@
 </template>
 
 <script>
+import crumbs from '~/components/crumbs.vue'
+
+const defaultFormThead = ['currencyCd', 'createDt']; // 默认选中项
+
 export default {
+  components: {
+    crumbs
+  },
   data() {
     return {
       // 列表
       list: null,
       pages: null,
+      pageSize: 10,
       users: [],
       total: 0,
       page: 1,
       currentPage3: 1,
       listLoading: false,
+      // 全选框
       sels: [],
       // 查看框
       editFormVisible: false,
@@ -145,11 +164,17 @@ export default {
       filters: {
         currencyCd: ''
       },
+      // 表头显示
+      key: 1, // table key
+      checkboxVal: defaultFormThead, // checkboxVal
+      formThead: defaultFormThead, // 默认表头
+      formTheadOptions: ['currencyCd', 'createDt', 'sn', 'uuid'], // 可选择表头
     }
   },
   methods: {
     handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
+      this.pageSize = val;
+      this.getUsers();
     },
     // 加载数据
     getUsers() {
@@ -164,7 +189,7 @@ export default {
         url: 'http://192.168.16.75:8800/manager/selectCurrencies',
         data: JSON.stringify({
           pageNo: self.page,
-          pageSize: '10',
+          pageSize: self.pageSize,
           currencyCd: currencyCds,
           order: 'desc',
           property: 'sn'
@@ -208,7 +233,6 @@ export default {
           method: 'post',
           url: 'http://192.168.16.75:8800/manager/deleteCurrency?uuid=' + uuid,
         }).then(function(response) {
-          console.log('正确');
           self.listLoading = false;
           self.$message({
             message: '删除成功',
@@ -310,6 +334,12 @@ export default {
     },
   },
   created() {},
+  watch: {
+    checkboxVal(valArr) {
+      this.formThead = this.formTheadOptions.filter(i => valArr.indexOf(i) >= 0);
+      this.key = this.key + 1; // 为了保证table 每次都会重渲 （牺牲性能保证效果，当然也可以不用）
+    }
+  },
   mounted() {
     this.getUsers();
   }
@@ -319,9 +349,19 @@ export default {
 <style scoped>
 .an {
   padding: 15px;
+  padding-bottom: 100px;
+  background: #fff;
 }
 
 .toolbar {
   padding: 15px 0;
+}
+
+.crumbs {
+  padding: 15px 0 0 0;
+}
+
+.checkbox-table {
+  padding-bottom: 15px;
 }
 </style>
