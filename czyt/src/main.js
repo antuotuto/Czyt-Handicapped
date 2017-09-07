@@ -3,7 +3,11 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import App from './App.vue'
 
-//
+// axios
+import axios from 'axios'
+Vue.prototype.$http = axios
+
+// 网页加载进度条
 import VueProgressBar from 'vue-progressbar'
 
 const options = {
@@ -22,8 +26,7 @@ const options = {
 
 Vue.use(VueProgressBar, options)
 
-import axios from 'axios'
-Vue.prototype.$http = axios
+
 
 // 默认css样式
 import './assets/css/delay.css'
@@ -37,6 +40,7 @@ import './assets/font_rtlpub24qcymbo6r/iconfont.css'
 // echarts
 import echarts from "echarts"
 
+// scss规范
 // import './assets/styles/main/main.scss'
 
 // 路由

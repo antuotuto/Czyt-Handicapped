@@ -49,7 +49,6 @@
 <script>
 import screenfull from '~/components/screenfull.vue';
 
-
 import {
   mapMutations
 } from 'vuex'
@@ -62,7 +61,7 @@ export default {
   data() {
     return {
       dialogVisible: false,
-      currentView: 'view-down',
+      currentView: 'view-main',
       options: [{
         value: '选项1',
         label: '个性化服务'

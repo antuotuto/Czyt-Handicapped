@@ -53,7 +53,7 @@
   <!--工具条-->
   <el-col :span="24" class="toolbar">
     <el-button type="danger" @click="batchRemove" :disabled="this.sels.length===0">批量删除</el-button>
-    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="currentPage3" :page-size="10" layout="total, prev, pager, next, jumper" :total="total" style="float:right;">
+    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="currentPage3" :page-size="10" :page-sizes="[10, 20, 30, 40]" layout="total, prev, pager, next, jumper" :total="total" style="float:right;">
     </el-pagination>
   </el-col>
   <!--  -->
@@ -103,15 +103,12 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
+      // 列表
       list: null,
       pages: null,
-      filters: {
-        name: ''
-      },
       users: [],
       total: 0,
       page: 1,
@@ -133,7 +130,8 @@ export default {
         currencyCd: '',
         currencyNm: -1,
       },
-      addFormVisible: false, //新增界面是否显示
+      //新增界面是否显示
+      addFormVisible: false,
       // 规则
       addFormRules: {
         id: [{
@@ -143,6 +141,7 @@ export default {
         }]
       },
       addLoading: false,
+      // 查找
       filters: {
         currencyCd: ''
       },
@@ -155,30 +154,32 @@ export default {
     // 加载数据
     getUsers() {
       self = this;
-      let para = {
-        page: this.page,
-        name: this.filters.name
-      };
+      let currencyCds = this.filters.currencyCd
       this.listLoading = true
       this.$http({
         method: 'post',
+        headers: {
+          'Content-Type': 'application/JSON'
+        },
         url: 'http://192.168.16.75:8800/manager/selectCurrencies',
-        data: {
+        data: JSON.stringify({
           pageNo: self.page,
           pageSize: '10',
-          currencyCd: self.filters
-        }
+          currencyCd: currencyCds,
+          order: 'desc',
+          property: 'sn'
+        })
       }).then(function(response) {
         self.list = response.data.data.list
         self.pages = response.data.data.pagination
-        self.listLoading = false
         self.total = self.pages.totalCount
         self.users = self.pages.totalPage
+        self.listLoading = false
       });
     },
     // 查找数据
     findUsers() {
-      let self = this;
+      self = this;
       let name = this.filters.name;
       this.listLoading = true
       this.$http({
@@ -199,7 +200,6 @@ export default {
     batchRemove: function() {
       self = this;
       var uuid = this.sels.map(item => item.uuid).toString();
-      console.log(uuid);
       this.$confirm('确认删除选中记录吗？', '提示', {
         type: 'warning'
       }).then(() => {
@@ -222,19 +222,6 @@ export default {
     },
     //编辑
     editSubmit: function() {
-      axios.post(this.registerUrl, this.editForm, {
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        })
-        .then(function(response) {
-          console.log(response);
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    },
-    editSubmit: function() {
       let editForm = this.editForm;
       this.$refs.editForm.validate((valid) => {
         if (valid) {
@@ -242,8 +229,11 @@ export default {
             this.editLoading = true;
             this.$http({
               method: 'post',
+              headers: {
+                'Content-Type': 'application/JSON'
+              },
               url: 'http://192.168.16.75:8800/manager/updateCurrency',
-              data: editForm
+              data: JSON.stringify(editForm)
             }).then((res) => {
               this.editLoading = false;
               this.$message({
@@ -262,12 +252,14 @@ export default {
     handleAdd: function() {
       this.addFormVisible = true;
       this.addForm = {
-        id: 111,
-        currencyCd: '2112',
-        currencyNm: -1,
+        id: '',
+        currencyCd: '',
+        currencyNm: '',
       };
     },
+    // 新增
     addSubmit() {
+      self = this
       let addForm = this.addForm;
       this.$refs.addForm.validate((valid) => {
         if (valid) {
@@ -275,8 +267,11 @@ export default {
             this.editLoading = true;
             this.$http({
               method: 'post',
+              headers: {
+                'Content-Type': 'application/JSON'
+              },
               url: 'http://192.168.16.75:8800/manager/saveCurrency',
-              data: addForm
+              data: JSON.stringify(addForm)
             }).then((res) => {
               this.addLoading = false;
               this.$message({
@@ -291,30 +286,6 @@ export default {
         }
       });
     },
-    // 查找功能
-    // findUser() {
-    //   let self = this;
-    //   let para = {
-    //     page: this.page,
-    //     name: this.filters.name
-    //   };
-    //   this.listLoading = true
-    //   this.$http({
-    //     method: 'post',
-    //     url: 'http://192.168.16.75:8800/manager/selectCurrencies',
-    //     data: {
-    //       pageNo: self.page,
-    //       pageSize: '10',
-    //       currencyCd: self.filters
-    //     }
-    //   }).then(function(response) {
-    //     self.list = response.data.data.list
-    //     self.pages = response.data.data.pagination
-    //     self.listLoading = false
-    //     self.total = self.pages.totalCount
-    //     self.users = self.pages.totalPage
-    //   });
-    // },
     // 多选
     selsChange: function(sels) {
       this.sels = sels;
