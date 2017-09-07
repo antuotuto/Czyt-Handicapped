@@ -1,7 +1,7 @@
 <template>
 <!--  -->
 <div class="leftMenu" :class="[this.logo ? true : 'active', '']">
-  <el-menu :default-active="$route.path" unique-opened router class="el-menu-vertical-demo" :collapse="!this.logo" theme="" :router="true" :unique-opened="true">
+  <el-menu :default-active="$route.path" unique-opened router class="el-menu-vertical-demo" :collapse="!this.logo" theme="dark" :router="true" :unique-opened="true">
     <template v-for="(item,index) in $router.options.routes" v-if="!item.hidden">
         <el-submenu  :index="index+''" v-if="!item.leaf">
           <template slot="title">
@@ -53,9 +53,9 @@ export default {
     width: 200px;
     transition: 0.5s;
     height: 100%;
-    background: #fff;
+    background: #1F2D3D;
     .el-menu {
-        background: #fff;
+        background: #1F2D3D;
     }
     &.active {
         width: 64px;
