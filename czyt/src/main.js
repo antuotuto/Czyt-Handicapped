@@ -11,8 +11,8 @@ Vue.prototype.$http = axios
 import VueProgressBar from 'vue-progressbar'
 
 const options = {
-  color: '#2945cb',
-  failedColor: '#3a9dff',
+  color: '#f1fc1b',
+  failedColor: '#f6740a',
   thickness: '3px',
   transition: {
     speed: '0.2s',

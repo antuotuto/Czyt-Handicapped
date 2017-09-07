@@ -21,6 +21,7 @@
   </el-col>
   <!--  -->
 
+  <!-- 选择表格项目 -->
   <div class="checkbox-table">
     <el-checkbox-group v-model="checkboxVal">
       <el-checkbox label="currencyCd">currencyCd</el-checkbox>
@@ -29,6 +30,7 @@
       <el-checkbox label="uuid">uuid</el-checkbox>
     </el-checkbox-group>
   </div>
+  <!--  -->
 
   <!-- 表格 -->
   <el-table :data="list" stripe tooltip-effect="dark" style="width: 100%" @selection-change="selsChange" v-loading="listLoading">
@@ -115,7 +117,7 @@
 <script>
 import crumbs from '~/components/crumbs.vue'
 
-const defaultFormThead = ['currencyCd', 'createDt']; // 默认选中项
+const defaultFormThead = ['currencyCd', 'sn','uuid']; // 默认选中项
 
 export default {
   components: {
@@ -337,7 +339,8 @@ export default {
   watch: {
     checkboxVal(valArr) {
       this.formThead = this.formTheadOptions.filter(i => valArr.indexOf(i) >= 0);
-      this.key = this.key + 1; // 为了保证table 每次都会重渲 （牺牲性能保证效果，当然也可以不用）
+      // table 每次都会重渲
+      this.key = this.key + 1;
     }
   },
   mounted() {
