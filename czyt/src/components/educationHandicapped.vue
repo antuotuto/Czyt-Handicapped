@@ -48,7 +48,7 @@ export default {
         data: [5, 20, 36, 10, 10, 20]
       }]
     });
-    
+
     let myChart2 = echarts.init(document.getElementById('main1'));
     myChart2.setOption({
       series: [{
