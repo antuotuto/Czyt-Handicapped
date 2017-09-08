@@ -117,7 +117,7 @@
 <script>
 import crumbs from '~/components/crumbs.vue'
 
-const defaultFormThead = ['currencyCd', 'sn','uuid']; // 默认选中项
+const defaultFormThead = ['currencyCd', 'sn', 'uuid']; // 默认选中项
 
 export default {
   components: {
