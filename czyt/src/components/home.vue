@@ -6,8 +6,8 @@
   <div class="home-right">
     <div class="right-content">
       <transition name="fade" mode="out-in">
-  			<router-view></router-view>
-  		</transition>
+        <router-view></router-view>
+      </transition>
     </div>
   </div>
 </div>
@@ -48,23 +48,22 @@ export default {
     height: 100%;
     padding: 15px 0 15px 15px;
     box-sizing: border-box;
-    .right-content{
-      overflow-y: scroll;
-      padding-right: 15px;
-      height:100%;
+    .right-content {
+        overflow-y: scroll;
+        padding-right: 15px;
+        height: 100%;
     }
 }
 
-
 .fade-enter-active,
 .fade-leave-active {
-	transition: all .2s ease;
+    transition: all 0.2s ease;
 }
 
 .fade-enter,
 .fade-leave-active {
-	opacity: 0;
-  transform: translateX(-3rem)
+    opacity: 0;
+    transform: translateX(-3rem);
 }
 
 ::-webkit-scrollbar-track-piece {

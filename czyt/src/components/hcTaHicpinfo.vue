@@ -39,7 +39,7 @@
           </el-row>
           <el-row :gutter="20" class="content-top">
             <el-col :span="24">
-              <el-button type="primary" icon="search"  v-on:click="getUsers">搜 索</el-button>
+              <el-button type="primary" icon="search" v-on:click="getUsers">搜 索</el-button>
               <el-button>重 置</el-button>
 
             </el-col>
@@ -595,12 +595,12 @@ export default {
         let para = {
           ids: ids
         };
-          this.listLoading = false;
-          //NProgress.done();
-          this.$message({
-            message: '删除成功',
-            type: 'success'
-          });
+        this.listLoading = false;
+        //NProgress.done();
+        this.$message({
+          message: '删除成功',
+          type: 'success'
+        });
       }).catch(() => {
 
       });
