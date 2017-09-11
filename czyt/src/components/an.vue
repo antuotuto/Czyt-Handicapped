@@ -79,7 +79,7 @@
       <el-form-item label="位置" prop="currencyCd">
         <el-input v-model="editForm.currencyCd" auto-complete="off"></el-input>
       </el-form-item>
-      <el-form-item label="申请情况" prop="currencyNm">
+      <el-form-item label="申请情况1" prop="currencyNm">
         <el-input v-model="editForm.currencyNm" auto-complete="off"></el-input>
       </el-form-item>
     </el-form>
