@@ -334,7 +334,9 @@ export default {
       });
     },
   },
-  created() {},
+  created() {
+
+  },
   watch: {
     checkboxVal(valArr) {
       this.formThead = this.formTheadOptions.filter(i => valArr.indexOf(i) >= 0);

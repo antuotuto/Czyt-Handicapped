@@ -26,8 +26,6 @@ const options = {
 
 Vue.use(VueProgressBar, options)
 
-
-
 // 默认css样式
 import './assets/css/delay.css'
 
