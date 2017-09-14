@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     message() {
-      return '王安安说这个页面你不能进......'
+      return '王安安说这个页面你不能进,除非你给他介绍个女票......'
     }
   }
 }
