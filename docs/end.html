@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi">
+  <meta http-equiv="cleartype" content="on">
+  <meta name="description" content="月饼节">
+  <title>聚美优品中秋节</title>
+  <link href="./style/comm.css" rel="stylesheet" type="text/css">
+  <link href="./style/animate.css" rel="stylesheet" type="text/css">
+  <script src="./script/jquery-3.2.0.min.js"></script>
+  <!--<script src="script/music.js"></script>-->
+</head>
+
+<body>
+  <div class="end-page">
+    <div class="music_btn active"></div>
+    <div class="end-cloud1 animated fadeInDown delay_100ms"></div>
+    <div class="end-cloud4 animated fadeInRight delay_100ms"></div>
+    <div class="end-cloud3 animated fadeInDown delay_100ms"></div>
+    <div class="end-cloud2 animated fadeInRight delay_100ms"></div>
+    <div class="endWintersweet animated fadeInLeft delay_400ms"></div>
+    <div class="endTree animated fadeInRight delay_400ms"></div>
+    <div class="endGlowworm1"></div>
+    <div class="endGlowworm2"></div>
+    <div class="endLantern1 animated fadeInUp delay_200ms"></div>
+    <div class="endLantern2 animated fadeInUp delay_300ms"></div>
+    <div class="endLantern3 animated fadeInUp delay_400ms"></div>
+    <div class="endLantern4 animated fadeInUp delay_500ms"></div>
+    <div class="endLantern5 animated fadeInUp delay_600ms"></div>
+    <div class="endQR animated fadeInUp delay_500ms">
+      <div class="activityEnd animated fadeInDown delay_900ms"></div>
+      <img src="./images/endQR.png" alt="">
+      <div class="attention animated fadeInUp delay_900ms"></div>
+    </div>
+    <div class="endGlowworm1 delay_2s"></div>
+    <div class="endGlowworm2 delay_2s"></div>
+    <div class="endPoet animated fadeInRight delay_600ms"></div>
+  </div>
+  <script>
+    $(function() {
+      function loadMp3 (src) {
+        $('<audio loop preload><source src="'+src+'" /></audio>').appendTo('body');//.on('canplaythrough', setMp3);
+        setMp3();
+      }
+
+      function setMp3 () {
+        document.addEventListener("WeixinJSBridgeReady", function () {
+          WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+            $('audio')[0].play();
+          });
+        }, false);
+        $('audio')[0].play();
+        $('.music_btn').on('click', playOrPaused);
+      }
+      loadMp3("images/VariousArtists.mp3");
+
+      function playOrPaused(){
+//        $('.music_btn').removeClass('off');
+//        setTimeout(function () {
+//            $('.music_btn').addClass('off')
+//        }, 0)
+        var audio = $('audio')[0];
+        var _this = $(this);
+        if(audio.paused){
+          _this.removeClass('off');
+          audio.play();
+          return;
+        }
+        _this.addClass('off');
+        audio.pause();
+      }
+    })
+  </script>
+</body>
+
+</html>
