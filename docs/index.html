@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi">
+  <meta http-equiv="cleartype" content="on">
+  <meta name="description" content="月饼节">
+  <title>聚美优品中秋节</title>
+  <link href="./style/comm.css" rel="stylesheet" type="text/css">
+  <link href="./style/animate.css" rel="stylesheet" type="text/css">
+  <script src="./script/jquery-3.2.0.min.js"></script>
+  <!--<script src="script/music.js"></script>-->
+</head>
+
+<body>
+  <!-- 外层隔离盒子 -->
+  <div class="content-box">
+    <div class="music_btn active"></div>
+    <!-- 首页 -->
+    <div class="end-page animated" id="endPage">
+      <div class="end-cloud1 animated fadeInDown delay_100ms"></div>
+      <div class="end-cloud4 animated fadeInRight delay_100ms"></div>
+      <div class="end-cloud3 animated fadeInDown delay_100ms"></div>
+      <div class="end-cloud2 animated fadeInRight delay_100ms"></div>
+      <div class="endWintersweet animated fadeInLeft delay_400ms"></div>
+      <div class="endTree animated fadeInRight delay_400ms"></div>
+      <div class="endGlowworm1"></div>
+      <div class="endGlowworm2"></div>
+      <div class="endLantern1 animated fadeInUp delay_200ms"></div>
+      <div class="endLantern2 animated fadeInUp delay_300ms"></div>
+      <div class="endLantern3 animated fadeInUp delay_400ms"></div>
+      <div class="endLantern4 animated fadeInUp delay_500ms"></div>
+      <div class="endLantern5 animated fadeInUp delay_600ms"></div>
+      <div class="poetry-box">
+        <div class="poetry animated fadeInUp delay_500ms"></div>
+        <div class="share shareNow animated fadeInUp delay_500ms">
+          <div class="share1"></div>
+          <div class="share2"></div>
+          <div class="share4">11</div>
+          <div class="share3"></div>
+        </div>
+        <div class="fristButton animated fadeInUp delay_900ms" id="fristButton"></div>
+      </div>
+      <div class="endSCloud1"></div>
+      <div class="endSCloud2"></div>
+      <div class="endGlowworm1 delay_2s"></div>
+      <div class="endGlowworm2 delay_2s"></div>
+      <div class="endPoet animated fadeInRight delay_600ms"></div>
+      <div class="endPageImg animated fadeInUp delay_700ms">
+        <img src="./images/endPageImg.png" alt="">
+      </div>
+    </div>
+    <!--  -->
+    <!-- 选择月饼页 -->
+    <div class="choose-Page animated pulse" id="choosePage">
+      <!-- 选择喜欢的月饼 -->
+      <ul>
+        <li class="chooseKernel chooseWarp animated fadeInUp delay_200ms" id="chooseKernel"></li>
+        <li class="chooseZao chooseWarp animated fadeInUp delay_300ms"></li>
+        <li class="choosesweetened chooseWarp animated fadeInUp delay_400ms"></li>
+        <li class="chooseEggB chooseWarp animated fadeInUp delay_500ms"></li>
+        <li class="chooseXian chooseWarp animated fadeInUp delay_600ms"></li>
+        <li class="chooseFruits chooseWarp animated fadeInUp delay_700ms"></li>
+        <li class="chooseIce chooseWarp animated fadeInUp delay_800ms"></li>
+        <li class="chooseLotus chooseWarp animated fadeInUp delay_900ms"></li>
+        <li class="chooseOther chooseWarp animated fadeInUp delay_900ms"></li>
+      </ul>
+      <!--  -->
+      <div class="chooseWintersweet animated fadeInLeft delay_400ms"></div>
+      <div class="chooseTree animated fadeInRight delay_400ms"></div>
+      <div class="chooseCloud1"></div>
+      <div class="chooseCloud2"></div>
+      <div class="chooseLantern1 animated fadeInUp delay_200ms"></div>
+      <div class="chooseLantern2 animated fadeInUp delay_300ms"></div>
+      <div class="chooseLantern3 animated fadeInUp delay_400ms"></div>
+      <div class="chooseLantern4 animated fadeInUp delay_500ms"></div>
+      <div class="iceCream"></div>
+      <div class="fruits1"></div>
+      <div class="fruits2"></div>
+      <div class="fruits3"></div>
+      <div class="fruits4"></div>
+      <div class="fruits5"></div>
+      <div class="fruits6"></div>
+      <div class="chooseEgg"></div>
+      <div class="dou4"></div>
+      <div class="dou3"></div>
+      <div class="dou1"></div>
+      <div class="lotus"></div>
+      <div class="chooseMoon animated fadeInDown delay_400ms"></div>
+      <div class="chooseWhat animated fadeInUp delay_300ms"></div>
+      <div class="chooseBing animated fadeInUp delay_200ms"></div>
+      <div class="chooseOk animated fadeInUp delay_900ms" id="chooseOk"></div>
+    </div>
+    <!--  -->
+    <!-- 表格渲染页 -->
+    <div class="excl-page" id="exclPage">
+      <div class="exclPeople animated fadeInDown delay_200ms">
+        <div class="excl1">哇，世界上</div>
+        <div class="excl2">有<span id="countSpan">111</span>个人和你</div>
+        <div class="excl3">口味一样~</div>
+      </div>
+      <div class="exclButton animated fadeInUp delay_400ms" id="exclButton"></div>
+    </div>
+    <!--  -->
+    <!-- 抽奖页 -->
+    <div class="lottery-page" id="lotteryPage">
+      <div class="lotteryGlowworm1"></div>
+      <div class="lotteryDeng3 animated fadeInUp delay_400ms"></div>
+      <!-- 月饼抽奖 -->
+      <ul>
+        <li class="wrap lotteryBing1-map animated fadeInDown delay_300ms wrapChange">
+          <div class="lotteryBing1 front"></div>
+          <div class="lotteryBing11 back"></div>
+        </li>
+        <li class="wrap lotteryBing2-map animated fadeInDown delay_400ms wrapChange">
+          <div class="lotteryBing2 front"></div>
+          <div class="lotteryBing22 back"></div>
+        </li>
+        <li class="wrap lotteryBing3-map animated fadeInDown delay_500ms wrapChange">
+          <div class="lotteryBing3 front"></div>
+          <div class="lotteryBing33 back"></div>
+        </li>
+        <li class="wrap lotteryBing4-map animated fadeInDown delay_600ms wrapChange">
+          <div class="lotteryBing4 front"></div>
+          <div class="lotteryBing44 back"></div>
+        </li>
+        <li class="wrap lotteryBing5-map animated fadeInDown delay_700ms wrapChange">
+          <div class="lotteryBing5 front"></div>
+          <div class="lotteryBing55 back"></div>
+        </li>
+        <li class="wrap lotteryBing6-map animated fadeInDown delay_800ms wrapChange">
+          <div class="lotteryBing6 front"></div>
+          <div class="lotteryBing66 back"></div>
+        </li>
+        <li class="wrap lotteryBing7-map animated fadeInDown delay_900ms wrapChange">
+          <div class="lotteryBing7 front"></div>
+          <div class="lotteryBing77 back"></div>
+        </li>
+        <li class="wrap lotteryBing8-map animated fadeInDown delay_1100ms wrapChange">
+          <div class="lotteryBing8 front"></div>
+          <div class="lotteryBing88 back"></div>
+        </li>
+        <li class="wrap lotteryBing9-map animated fadeInDown delay_1200ms wrapChange">
+          <div class="lotteryBing9 front"></div>
+          <div class="lotteryBing99 back"></div>
+        </li>
+      </ul>
+      <!--  -->
+      <div class="lotteryGlowworm2"></div>
+      <div class="lotteryMoon animated fadeInDown delay_200ms"></div>
+      <div class="lotteryWintersweet animated fadeInLeft delay_400ms"></div>
+      <div class="lotteryTree animated fadeInRight delay_400ms" id="lotteryTree"></div>
+      <div class="lotteryYun2"></div>
+      <div class="lotteryYun1"></div>
+      <div class="lotteryDeng2 animated fadeInUp delay_200ms"></div>
+      <div class="lotteryDeng4 animated fadeInUp delay_300ms"></div>
+      <div class="lotteryDeng1 animated fadeInUp delay_600ms"></div>
+      <div class="lotteryLove animated fadeInUp delay_500ms"></div>
+    </div>
+    <!--  -->
+    <!-- 未中奖 -->
+    <div class="sorry-page animated bounceInDown delay_800ms" id="sorryPage"></div>
+    <!--  -->
+    <!-- 恭喜中奖 -->
+    <div class="true-page animated bounceInDown delay_800ms" id="truePage"></div>
+    <!--  -->
+    <!-- 等待发奖品 -->
+    <div class="wait-page animated bounceInDown delay_800ms" id="waitPage"></div>
+    <!--  -->
+    <!-- 填写地址 -->
+    <div class="address-page animated bounceInDown delay_800ms" id="addressPage">
+      <form action="" class="address">
+        <input type="text" class="UserName">
+        <input type="text" class="UserPhone">
+        <textarea name="name" rows="8" cols="80" class="UserAddress"></textarea>
+      </form>
+      <div class="UserMessage" id="UserMessage"></div>
+    </div>
+  </div>
+
+  <script>
+    $(function () {
+      function loadMp3(src) {
+        $('<audio loop preload><source src="' + src + '" /></audio>').appendTo('body');//.on('canplaythrough', setMp3);
+        setMp3();
+      }
+
+      function setMp3() {
+        document.addEventListener("WeixinJSBridgeReady", function () {
+          WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+            $('audio')[0].play();
+          });
+        }, false);
+        $('audio')[0].play();
+        $('.music_btn').on('click', playOrPaused);
+      }
+      loadMp3("images/VariousArtists.mp3");
+
+      function playOrPaused() {
+        //        $('.music_btn').removeClass('off');
+        //        setTimeout(function () {
+        //            $('.music_btn').addClass('off')
+        //        }, 0)
+        var audio = $('audio')[0];
+        var _this = $(this);
+        if (audio.paused) {
+          _this.removeClass('off');
+          audio.play();
+          return;
+        }
+        _this.addClass('off');
+        audio.pause();
+      }
+    })
+  </script>
+  <!--  -->
+  <script type=text/javascript>
+    // 选择月饼
+    var question = "";
+    // 月饼抽奖
+    var answer = "";
+    // 分享成功
+    // $(".poetrClasy").addClass("active")
+    // $(".share").adds("active")
+    // 直接进入失败页
+    // $("#endPage").addClass("active");
+    // $('.chooseWarp').removeClass("active");
+    // $("#choosePage").hide(0);
+    // $("#exclPage").hide(0);
+    // $("#lotteryPage").show();
+    // $("#sorryPage").show();
+    // 首页到第二页的动画 后端不需要处理
+    $('#fristButton').click(function() {
+      $("#endPage").addClass("active");
+      $("#choosePage").show()
+      $(".dou1").addClass("active");
+      $(".dou3").addClass("active");
+      $(".dou4").addClass("active");
+      $('.dou1').delay(2000).show(0);
+      $('.dou3').delay(2000).show(0);
+      $('.dou4').delay(2000).show(0);
+      $(".chooseEgg").addClass("active");
+      $('.chooseEgg').delay(2000).show(0);
+      $(".iceCream").addClass("active");
+      $('.iceCream').delay(2000).show(0);
+      $(".lotus").addClass("active");
+      $(".fruits1").addClass("active");
+      $(".fruits2").addClass("active");
+      $(".fruits3").addClass("active");
+      $(".fruits4").addClass("active");
+      $(".fruits5").addClass("active");
+      $(".fruits6").addClass("active");
+      $('.fruits1').delay(2000).show(0);
+      $('.fruits2').delay(2000).show(0);
+      $('.fruits3').delay(2000).show(0);
+      $('.fruits4').delay(2000).show(0);
+      $('.fruits5').delay(2000).show(0);
+      $('.fruits6').delay(2000).show(0);
+    });
+    // 选择月饼页 点击月饼加active类就激活月饼 选择月饼
+    $('.chooseWarp').click(function(e) {
+      $('.chooseWarp').removeClass("active");
+      $(this).addClass("active");
+      question = $(e.target).index();
+      console.log(question);
+    })
+    // 选择月饼页跳到表格页
+    $('#chooseOk').click(function() {
+      if (question === "") {
+        return
+      } else {
+        // 启动表格渲染动画  hs为选择月饼的人数
+        $("#choosePage").addClass("OnActive");
+        $("#exclPage").show();
+      }
+    })
+    // 表格页动画  后端不需要处理
+    $('#exclButton').click(function() {
+      $("#lotteryPage").show();
+      $("#choosePage").hide(0);
+      $("#exclPage").hide(0);
+    })
+    // 选择彩票页动画 后端不需要处理
+    $('#lotteryTree').click(function() {
+      $("#winPage").addClass("active");
+      $(".star").addClass("active");
+    })
+    // 抽奖页逻辑
+    $('.wrap').click(function(e) {
+      $(e.target).parent().addClass("active");
+      answer = $(e.target).index();
+      var index = $('.wrap').index($(this))
+      console.log(index);
+      // if (answer === question) {
+        // 显示中奖页 后端不需要处理
+//         $("#truePage").show();
+        // 显示等待中奖页 后端不需要处理
+        // $("#waitPage").show();
+        // 显示地址填写页 后端不需要处理
+//        $("#addressPage").show();
+      // } else {
+        // 显示未中奖页 后端不需要处理
+         $("#sorryPage").show();
+      // }
+    })
+    // 地址填写的表单提交
+    $("#UserMessage").click(function() {
+      console.log("正确提交");
+    })
+  </script>
+</body>
+
+</html>
