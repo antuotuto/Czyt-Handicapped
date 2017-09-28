@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%
 }
 
@@ -7,12 +8,29 @@ body {
   color: #000
 }
 
-body, p, ul, li, ol, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, iframe {
+body,
+p,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dt,
+dd,
+form,
+iframe {
   margin: 0;
   padding: 0
 }
 
-ul, li, ol {
+ul,
+li,
+ol {
   list-style: none outside none
 }
 
@@ -22,7 +40,8 @@ img {
   width: 100%
 }
 
-input, select {
+input,
+select {
   vertical-align: middle
 }
 
@@ -57,7 +76,8 @@ a:visited {
   color: #333
 }
 
-a:hover, a:active {
+a:hover,
+a:active {
   color: #999
 }
 
@@ -551,7 +571,7 @@ body {
   height: 436px;
   margin: 0 auto;
   position: relative;
-  top: 396px;
+  top: 255px;
   z-index: 500
 }
 
@@ -781,7 +801,7 @@ body {
 
 .chooseOther.active:after {
   content: '';
-  background-color: rgb(253, 216, 22);
+  background-color: #fdd816;
   border-radius: 50%;
   background-size: 100% 100%;
   font-size: 14px;
@@ -805,7 +825,7 @@ body {
 
 .chooseZao.active:after {
   content: '';
-  background-color: rgb(253, 216, 22);
+  background-color: #fdd816;
   border-radius: 50%;
   background-size: 100% 100%;
   font-size: 14px;
@@ -838,7 +858,7 @@ body {
 
 .chooseLotus.active:after {
   content: '';
-  background-color: rgb(253, 216, 22);
+  background-color: #fdd816;
   border-radius: 50%;
   background-size: 100% 100%;
   font-size: 14px;
@@ -901,7 +921,7 @@ body {
 
 .chooseIce.active:after {
   content: '';
-  background-color: rgb(253, 216, 22);
+  background-color: #fdd816;
   border-radius: 50%;
   background-size: 100% 100%;
   font-size: 14px;
@@ -926,7 +946,7 @@ body {
 
 .chooseFruits.active:after {
   content: '';
-  background-color: rgb(253, 216, 22);
+  background-color: #fdd816;
   border-radius: 50%;
   background-size: 100% 100%;
   font-size: 14px;
@@ -951,7 +971,7 @@ body {
 
 .chooseXian.active:after {
   content: '';
-  background-color: rgb(253, 216, 22);
+  background-color: #fdd816;
   border-radius: 50%;
   background-size: 100% 100%;
   font-size: 14px;
@@ -976,7 +996,7 @@ body {
 
 .chooseEggB.active:after {
   content: '';
-  background-color: rgb(253, 216, 22);
+  background-color: #fdd816;
   border-radius: 50%;
   background-size: 100% 100%;
   font-size: 14px;
@@ -1035,7 +1055,7 @@ body {
 
 .chooseKernel.active:after {
   content: '';
-  background-color: rgb(253, 216, 22);
+  background-color: #fdd816;
   border-radius: 50%;
   background-size: 100% 100%;
   font-size: 14px;
@@ -1163,12 +1183,12 @@ body {
   left: 539px;
   top: 337px;
   width: 149px;
-  height: 194px;
+  height: 194px
 }
 
 .choosesweetened.active:after {
   content: '';
-  background-color: rgb(253, 216, 22);
+  background-color: #fdd816;
   border-radius: 50%;
   background-size: 100% 100%;
   font-size: 14px;
@@ -1218,7 +1238,8 @@ body {
   left: 58px;
   top: 272px;
   height: 23px;
-  width: 633px
+  width: 633px;
+  z-index: 20
 }
 
 .chooseBing {
@@ -1260,16 +1281,12 @@ body {
   top: 462px;
   width: 387px;
   height: 413px;
-  z-index: 158;
+  z-index: 158
 }
 
 .exclPeople span {
-  /*position: absolute;*/
-  /*left: 133px;*/
-  /*top: 210px;*/
-  /*letter-spacing: 2px;*/
   font-size: 24px;
-  color: #b86a34;
+  color: #b86a34
 }
 
 .exclButton {
@@ -1592,7 +1609,8 @@ ul {
   height: 143px
 }
 
-.front, .back {
+.front,
+.back {
   backface-visibility: hidden;
   transition: 1s;
   width: 145px;
@@ -1628,7 +1646,7 @@ ul {
   left: 175px;
   top: 370px;
   width: 408px;
-  height: 23px;
+  height: 23px
 }
 
 .lotteryLove {
@@ -1978,7 +1996,7 @@ ul {
   top: 0;
   width: 750px;
   height: 1334px;
-  z-index: 3;
+  z-index: 2000;
   display: none
 }
 
@@ -1989,7 +2007,7 @@ ul {
   top: 0;
   width: 750px;
   height: 1334px;
-  z-index: 3;
+  z-index: 2000;
   display: none
 }
 
@@ -2010,7 +2028,7 @@ ul {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: none
 }
 
@@ -2021,9 +2039,8 @@ ul {
   top: 73px;
   width: 671px;
   height: 857px;
-  z-index: 6;
+  z-index: 6
 }
-
 
 .UserName {
   position: absolute;
@@ -2070,11 +2087,11 @@ ul {
   top: 843px;
   width: 380px;
   height: 89px;
-  z-index: 50;
+  z-index: 50
 }
 
-.poetry.active{
-  display: none;
+.poetry.active {
+  display: none
 }
 
 .share {
@@ -2085,15 +2102,15 @@ ul {
   height: 121.673px;
   margin-left: -37px;
   margin-bottom: 250px;
-  display: none;
+  display: none
 }
 
-.share.active{
-  display: block;
+.share.active {
+  display: block
 }
 
-.shareNow{
-  width:600px;
+.shareNow {
+  width: 600px
 }
 
 .share1 {
@@ -2102,7 +2119,7 @@ ul {
   background-size: 100% 100%;
   height: 45px;
   width: 443px;
-  margin-bottom: 30px;
+  margin-bottom: 30px
 }
 
 .share2 {
@@ -2111,7 +2128,7 @@ ul {
   background-size: 100% 100%;
   height: 45px;
   width: 88px;
-  float: left;
+  float: left
 }
 
 .share3 {
@@ -2120,7 +2137,7 @@ ul {
   background-size: 100% 100%;
   height: 45px;
   width: 312px;
-  float: left;
+  float: left
 }
 
 .share4 {
@@ -2128,7 +2145,7 @@ ul {
   height: 45px;
   float: left;
   font-size: 40px;
-  padding: 6px;
+  padding: 6px
 }
 
 .exclPeople div {
@@ -2136,22 +2153,46 @@ ul {
   color: #af5d2b;
   padding-left: 125px;
   padding-top: 13px;
-  letter-spacing: 2px;
+  letter-spacing: 2px
 }
 
 .exclPeople div:nth-child(1) {
-  padding-top: 171px;
+  padding-top: 171px
 }
 
 .exclPeople div:nth-child(2) {
-  padding-left: 90px;
+  padding-left: 90px
 }
 
 .exclPeople span {
   font-size: 30px;
   padding: 0 2px;
-  color: #b86a34;
+  color: #b86a34
 }
 
-.music_btn{position:absolute;background:url("../images/musicBtn.png") 50% 50% no-repeat ;padding:40px;z-index: 10001;right:0;top:0;border-radius:500px;}
-.music_btn.off{background-image:url("../images/musicBtnOff.png")}
+.music_btn {
+  position: absolute;
+  background: url("../images/musicBtn.png") 50% 50% no-repeat;
+  padding: 40px;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  border-radius: 500px
+}
+
+.music_btn.off {
+  background-image: url("../images/musicBtnOff.png")
+}
+
+.endPageImg {
+  position: absolute;
+  left: 213px;
+  bottom: 150px;
+  width: 302px;
+  height: 191px;
+}
+
+.endPageImg img {
+  height: 100%;
+  width: 100%;
+}
