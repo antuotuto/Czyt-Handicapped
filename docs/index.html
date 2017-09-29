@@ -141,9 +141,11 @@
           <div class="lotteryBing8 front"></div>
           <div class="lotteryBing88 back"></div>
         </li>
-        <li class="wrap lotteryBing9-map animated fadeInDown delay_1200ms wrapChange">
-          <div class="lotteryBing9 front"></div>
-          <div class="lotteryBing99 back"></div>
+        <li class="wrap ">
+          <div class="wrapTrans">
+            <div class="lotteryBing9 front"></div>
+            <div class="lotteryBing99 back"></div>
+          </div>
         </li>
       </ul>
       <!--  -->
@@ -180,15 +182,15 @@
   </div>
 
   <script>
-    $(function () {
+    $(function() {
       function loadMp3(src) {
-        $('<audio loop preload><source src="' + src + '" /></audio>').appendTo('body');//.on('canplaythrough', setMp3);
+        $('<audio loop preload><source src="' + src + '" /></audio>').appendTo('body'); //.on('canplaythrough', setMp3);
         setMp3();
       }
 
       function setMp3() {
-        document.addEventListener("WeixinJSBridgeReady", function () {
-          WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+        document.addEventListener("WeixinJSBridgeReady", function() {
+          WeixinJSBridge.invoke('getNetworkType', {}, function(e) {
             $('audio')[0].play();
           });
         }, false);
@@ -293,15 +295,15 @@
       var index = $('.wrap').index($(this))
       console.log(index);
       // if (answer === question) {
-        // 显示中奖页 后端不需要处理
-//         $("#truePage").show();
-        // 显示等待中奖页 后端不需要处理
-        // $("#waitPage").show();
-        // 显示地址填写页 后端不需要处理
-//        $("#addressPage").show();
+      // 显示中奖页 后端不需要处理
+      //         $("#truePage").show();
+      // 显示等待中奖页 后端不需要处理
+      // $("#waitPage").show();
+      // 显示地址填写页 后端不需要处理
+      //        $("#addressPage").show();
       // } else {
-        // 显示未中奖页 后端不需要处理
-         $("#sorryPage").show();
+      // 显示未中奖页 后端不需要处理
+      // $("#sorryPage").show();
       // }
     })
     // 地址填写的表单提交
